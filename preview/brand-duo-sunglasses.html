@@ -1,0 +1,21 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0;background:#0A0A0A;color:var(--bone);font-family:var(--font-body);height:100%;overflow:hidden;}
+  .card{padding:0;display:grid;grid-template-columns:1fr 1fr;height:100%;gap:0;}
+  .frame{position:relative;overflow:hidden;}
+  .frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;}
+  .scrim{position:absolute;inset:0;pointer-events:none;}
+  .lbl{position:absolute;left:14px;bottom:12px;z-index:2;display:flex;flex-direction:column;gap:4px;}
+  .eb{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#F94B0F;}
+  .name{font-family:var(--font-display);font-weight:800;font-size:22px;line-height:1;letter-spacing:-.02em;text-transform:uppercase;color:#F4EFE6;}
+  .lut img{filter:contrast(1.18) saturate(0.7) brightness(0.78) hue-rotate(-4deg);}
+  .lut .scrim{background:radial-gradient(ellipse at 50% 30%,rgba(249,75,15,0.14),transparent 55%),linear-gradient(180deg,rgba(10,10,10,.25) 0%,rgba(10,10,10,.55) 60%,rgba(10,10,10,.95) 100%);}
+  .void img{filter:contrast(1.28) saturate(0.5) brightness(0.6);}
+  .void .scrim{background:linear-gradient(180deg,rgba(10,10,10,.45) 0%,rgba(10,10,10,.78) 70%,rgba(10,10,10,.98) 100%);}
+  .void::after{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(rgba(255,255,255,.05) 1px,transparent 1px);background-size:3px 3px;mix-blend-mode:overlay;opacity:.7;}
+  .stamp{position:absolute;top:14px;right:14px;z-index:3;background:#F94B0F;color:#0A0A0A;font-family:var(--font-display);font-weight:800;font-size:10px;letter-spacing:.14em;text-transform:uppercase;padding:4px 8px;}
+</style></head>
+<body><div class="card">
+  <div class="frame lut"><img src="../assets/photos/duo-sunglasses.jpg" alt="Mozaka sunglasses"><div class="scrim"></div><div class="lbl"><span class="eb">Press · Night Owl LUT</span><span class="name">Bakka &nbsp; Kava</span></div></div>
+  <div class="frame void"><span class="stamp">2AM</span><img src="../assets/photos/duo-sunglasses.jpg" alt="Mozaka sunglasses Void"><div class="scrim"></div><div class="lbl"><span class="eb">Void treatment · grain</span><span class="name">Mozaka</span></div></div>
+</div></body></html>

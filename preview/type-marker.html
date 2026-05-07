@@ -1,0 +1,63 @@
+<!DOCTYPE html><html><head><meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Modak&family=Rubik+Puddles&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0;background:#0A0A0A;color:var(--bone);font-family:var(--font-body);height:100%;}
+  .card{padding:28px;display:flex;flex-direction:column;gap:16px;height:100%;box-sizing:border-box;}
+  .label{font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#F94B0F;}
+
+  /* HERO — squeezed brick. Each letter scaled vertically, slight rotation, fused. */
+  .squeeze{font-family:"Modak",cursive;line-height:.7;text-transform:lowercase;display:inline-flex;flex-direction:column;align-items:flex-start;gap:0;}
+  .squeeze .row{display:inline-flex;align-items:flex-end;}
+  .squeeze .row span{display:inline-block;font-size:120px;letter-spacing:-.08em;}
+  .squeeze .l1 span{color:#F94B0F;transform-origin:bottom;}
+  .squeeze .l1 span:nth-child(1){transform:scaleY(1.15) rotate(-3deg);}
+  .squeeze .l1 span:nth-child(2){transform:scaleY(1.08) rotate(2deg) translateX(-6px);}
+  .squeeze .l1 span:nth-child(3){transform:scaleY(1.18) rotate(-1deg) translateX(-10px);}
+  .squeeze .l1 span:nth-child(4){transform:scaleY(1.05) rotate(3deg) translateX(-14px);}
+  .squeeze .l2{margin-top:-22px;}
+  .squeeze .l2 span{color:#F4EFE6;}
+  .squeeze .l2 span:nth-child(1){transform:scaleY(1.12) rotate(2deg);}
+  .squeeze .l2 span:nth-child(2){transform:scaleY(1.2) rotate(-3deg) translateX(-8px);}
+  .squeeze .l2 span:nth-child(3){transform:scaleY(1.06) rotate(1deg) translateX(-12px);}
+  .squeeze .l2 span:nth-child(4){transform:scaleY(1.14) rotate(-2deg) translateX(-16px);}
+  .squeeze .l2 span:nth-child(5){transform:scaleY(1.1) rotate(3deg) translateX(-20px);}
+
+  /* TEE row — short bursts, each one squeezed differently */
+  .row{display:flex;gap:14px;flex-wrap:wrap;align-items:center;}
+  .tee{font-family:"Modak",cursive;line-height:.78;text-transform:lowercase;letter-spacing:-.06em;padding:18px 22px 14px;display:inline-block;font-size:46px;}
+  .tee.signal{background:#F94B0F;color:#0A0A0A;transform:rotate(-2deg) scaleY(1.1);}
+  .tee.bone{background:#F4EFE6;color:#F94B0F;transform:rotate(1.5deg) scaleY(1.08) scaleX(0.95);}
+  .tee.void{background:#0A0A0A;color:#F4EFE6;box-shadow:inset 0 0 0 2px #F94B0F;transform:rotate(-1deg) scaleY(1.15) scaleX(0.92);}
+
+  /* Wonky alt */
+  .alt{font-family:"Rubik Puddles",cursive;color:#F4EFE6;font-size:60px;line-height:1;text-transform:lowercase;display:inline-block;letter-spacing:-.02em;transform:rotate(-1.5deg);}
+  .alt .o{color:#F94B0F;}
+
+  .meta{margin-top:auto;font-family:var(--font-mono);font-size:10px;color:#6E6E6E;line-height:1.6;}
+  .meta b{color:#F4EFE6;font-weight:600;}
+</style></head>
+<body><div class="card">
+  <div class="label">Marker — Modak · squeezed lowercase, brick-stacked</div>
+
+  <div class="squeeze">
+    <div class="row l1"><span>a</span><span>f</span><span>r</span><span>o</span></div>
+    <div class="row l2"><span>h</span><span>o</span><span>u</span><span>s</span><span>e</span></div>
+  </div>
+
+  <div class="row">
+    <div class="tee signal">night owl</div>
+    <div class="tee bone">orange pilled</div>
+    <div class="tee void">to the moon</div>
+  </div>
+
+  <div class="label">Wonky alt — Rubik Puddles · stickers, fan voice</div>
+  <span class="alt">we own&nbsp;<span class="o">the morning</span></span>
+
+  <div class="meta">
+    The squeeze comes from CSS, not the font: <b>scaleY 1.05–1.20</b>, <b>letter-spacing −0.06em</b>, per-letter rotation ±3°, line-height 0.7–0.78. Set lowercase. Stack lines until they fuse. Each letter sits a different way — never a clean baseline.<br>
+    <b>For final assets:</b> license a paid bubble face — Bourton Hand, Pangaia, Boldoa, or Cooper Black BT.
+  </div>
+</div></body></html>

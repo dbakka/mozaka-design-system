@@ -1,0 +1,28 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0;background:#0A0A0A;color:var(--bone);font-family:var(--font-body);height:100%;}
+  .card{padding:24px;display:flex;flex-direction:column;gap:14px;height:100%;box-sizing:border-box;}
+  .label{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#F94B0F;}
+  .field{display:flex;flex-direction:column;gap:6px;max-width:360px;}
+  .field label{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#6E6E6E;}
+  input,select{background:#141414;color:#F4EFE6;border:1px solid #2D2D2D;border-radius:2px;padding:12px 14px;font-family:var(--font-body);font-size:14px;outline:none;transition:border-color 180ms cubic-bezier(.2,.8,.2,1);}
+  input:focus,select:focus{border-color:#F94B0F;outline:2px solid #F94B0F;outline-offset:1px;}
+  .row{display:flex;gap:12px;flex-wrap:wrap;}
+  .chip{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;background:#1B1B1B;border:1px solid #2D2D2D;color:#F4EFE6;font-size:12px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;}
+  .chip.on{background:#F94B0F;color:#0A0A0A;border-color:#F94B0F;}
+</style></head>
+<body><div class="card">
+  <div class="label">Inputs — Void, hairline, Signal focus</div>
+  <div class="row">
+    <div class="field"><label>Email</label><input value="brian@nairobi.co" /></div>
+    <div class="field"><label>City</label><select><option>Nairobi</option><option>Kampala</option><option>Lagos</option></select></div>
+  </div>
+  <div class="label">Filter chips</div>
+  <div class="row">
+    <span class="chip on">All</span>
+    <span class="chip">Run Club</span>
+    <span class="chip">Orange Pill</span>
+    <span class="chip">Coordinates</span>
+    <span class="chip">Mozakaville</span>
+  </div>
+</div></body></html>

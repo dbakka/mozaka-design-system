@@ -1,0 +1,21 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0;background:#0A0A0A;color:var(--bone);font-family:var(--font-body);height:100%;}
+  .card{padding:24px;display:grid;grid-template-columns:1fr 1fr;gap:14px;height:100%;box-sizing:border-box;}
+  .lock{padding:18px;display:flex;flex-direction:column;justify-content:space-between;min-height:120px;position:relative;}
+  .lock .head{font-family:var(--font-display);font-weight:800;font-size:22px;line-height:.95;letter-spacing:-.02em;text-transform:uppercase;}
+  .lock .tag{font-size:10px;font-family:var(--font-body);font-weight:600;letter-spacing:.14em;text-transform:uppercase;}
+  .ok::before{content:"✓ APPROVED";position:absolute;top:10px;right:12px;font-size:9px;font-weight:700;letter-spacing:.16em;color:inherit;opacity:.7;font-family:var(--font-body);}
+  .no::before{content:"✗ AVOID";position:absolute;top:10px;right:12px;font-size:9px;font-weight:700;letter-spacing:.16em;color:#F94B0F;font-family:var(--font-body);}
+  .a{background:#0A0A0A;color:#F94B0F;}
+  .b{background:#F94B0F;color:#0A0A0A;}
+  .c{background:#0A0A0A;color:#F4EFE6;}
+  .d{background:#F4EFE6;color:#F94B0F;}
+  .e{background:#2D2D2D;color:#F94B0F;}
+</style></head>
+<body><div class="card">
+  <div class="lock a ok"><span class="tag">Signal on Void</span><span class="head">Night Owl<br>Sound</span></div>
+  <div class="lock b ok"><span class="tag">Void on Signal</span><span class="head">Coordinates<br>001</span></div>
+  <div class="lock c ok"><span class="tag">Bone on Void</span><span class="head">Inner Circle.<br>By invitation.</span></div>
+  <div class="lock d ok"><span class="tag">Signal on Bone</span><span class="head">Mozaka<br>Playbook</span></div>
+</div></body></html>

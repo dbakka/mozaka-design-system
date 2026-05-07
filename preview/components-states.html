@@ -1,0 +1,32 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0;background:#0A0A0A;color:var(--bone);font-family:var(--font-body);height:100%;}
+  .card{padding:24px;display:flex;flex-direction:column;gap:14px;height:100%;box-sizing:border-box;}
+  .label{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#F94B0F;}
+  .row{display:flex;gap:14px;align-items:center;flex-wrap:wrap;}
+  .demo{width:120px;height:60px;background:#1B1B1B;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#F4EFE6;cursor:pointer;}
+  .d-default{}
+  .d-hover{background:#232323;}
+  .d-press{background:#232323;box-shadow:inset 0 0 0 2px #F94B0F;transform:translateY(1px);}
+  .d-focus{outline:2px solid #F94B0F;outline-offset:2px;}
+  .d-signal{background:#F94B0F;color:#0A0A0A;}
+  .d-signal-h{background:#D43A05;color:#0A0A0A;}
+  .meta{font-family:var(--font-mono);font-size:11px;color:#6E6E6E;margin-top:auto;}
+  .lift{width:120px;height:60px;background:#1B1B1B;box-shadow:0 12px 32px rgba(0,0,0,.6);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:10px;color:#6E6E6E;}
+</style></head>
+<body><div class="card">
+  <div class="label">States — Void</div>
+  <div class="row">
+    <div class="demo d-default">Default</div>
+    <div class="demo d-hover">Hover</div>
+    <div class="demo d-press">Press</div>
+    <div class="demo d-focus">Focus</div>
+  </div>
+  <div class="label">States — Signal</div>
+  <div class="row">
+    <div class="demo d-signal">Default</div>
+    <div class="demo d-signal-h">Hover</div>
+    <div class="lift">shadow-lift</div>
+  </div>
+  <div class="meta">Motion: 120–220ms · cubic-bezier(.2,.8,.2,1) ease-out · no springs, no parallax</div>
+</div></body></html>

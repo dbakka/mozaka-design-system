@@ -1,0 +1,243 @@
+/* ============================================================
+   MOZAKA — Foundations
+   The Night Owl Sound. Dark, industrial Afrohouse.
+   Three-color discipline. Hand-cut wordmarks only.
+   ============================================================ */
+
+/* ── Fonts ─────────────────────────────────────────────────── */
+@font-face {
+  font-family: "Monument Extended";
+  src: url("./fonts/MonumentExtended-Regular.otf") format("opentype");
+  font-weight: 400 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Monument Extended";
+  src: url("./fonts/MonumentExtended-Ultrabold.otf") format("opentype");
+  font-weight: 700 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "SF Pro Display";
+  src: url("./fonts/SF-Pro-Display-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "SF Pro Display";
+  src: url("./fonts/SF-Pro-Display-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "SF Pro Display";
+  src: url("./fonts/SF-Pro-Display-Semibold.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "SF Pro Display";
+  src: url("./fonts/SF-Pro-Display-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "SF Pro Display";
+  src: url("./fonts/SF-Pro-Display-Heavy.otf") format("opentype");
+  font-weight: 800 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Marker — for catchphrases, placards, fan voice. Loaded from Google Fonts.
+   Free stack approximating fat 70s bubble lettering (Cooper Black / Bourton Hand family).
+   For final assets, license a paid bubble font (Pangaia, Bourton Hand, Boldoa). */
+@import url("https://fonts.googleapis.com/css2?family=Modak&family=Rubik+Puddles&display=swap");
+
+/* ── Tokens ────────────────────────────────────────────────── */
+:root {
+  /* — Core palette (3-color discipline + Bone for print) — */
+  --void-black:     #0A0A0A;   /* primary base, ~45% */
+  --signal-orange:  #F94B0F;   /* brand color,   ~35% */
+  --concrete-grey:  #2D2D2D;   /* UI / text,     ~15% */
+  --bone:           #F4EFE6;   /* doc / print,   ~5%  */
+
+  /* Tonal helpers — DO NOT introduce new hues. Only black-mixed shades. */
+  --void-94:        #141414;   /* surface raise   */
+  --void-88:        #1B1B1B;   /* card on void    */
+  --void-78:        #232323;   /* hover on void   */
+  --concrete-44:    #4A4A4A;   /* divider on void */
+  --concrete-66:    #6E6E6E;   /* muted text      */
+  --bone-94:        #E8E1D3;   /* divider on bone */
+  --bone-88:        #D8D0BE;   /* muted on bone   */
+  --signal-pressed: #D43A05;   /* press / active  */
+  --signal-tint:    rgba(249, 75, 15, 0.12);
+
+  /* — Semantic colors — */
+  --bg:             var(--void-black);
+  --bg-raise:       var(--void-94);
+  --bg-card:        var(--void-88);
+  --bg-hover:       var(--void-78);
+  --fg:             var(--bone);
+  --fg-muted:       var(--concrete-66);
+  --fg-on-signal:   var(--void-black);
+  --accent:         var(--signal-orange);
+  --accent-pressed: var(--signal-pressed);
+  --divider:        var(--concrete-44);
+  --surface-print:  var(--bone);
+
+  /* — Type families — */
+  --font-display: "Monument Extended", "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --font-body:    "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-marker:  "Modak", "Rubik Puddles", "Cooper Black", cursive; /* placards · catchphrases · fan voice — fat 70s bubble */
+  --font-mono:    ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  /* — Type scale (cinematic, header-led) — */
+  --fs-hero:    clamp(64px, 9vw, 144px);   /* poster / album drop */
+  --fs-h1:      clamp(44px, 5vw, 72px);
+  --fs-h2:      clamp(32px, 3.6vw, 52px);
+  --fs-h3:      24px;
+  --fs-h4:      18px;
+  --fs-body:    16px;
+  --fs-small:   14px;
+  --fs-eyebrow: 12px;   /* uppercase metadata */
+
+  /* — Tracking (Monument: -20 → 0; eyebrow positive) — */
+  --track-display:  -0.02em;   /* -20 */
+  --track-display-tight: -0.015em;
+  --track-h:        -0.01em;
+  --track-body:     0;
+  --track-eyebrow:  0.14em;    /* uppercase labels */
+
+  /* — Line heights — */
+  --lh-display: 0.92;
+  --lh-h:       1.05;
+  --lh-body:    1.45;
+  --lh-eyebrow: 1.0;
+
+  /* — Spacing (4px base, industrial rhythm) — */
+  --s-1:  4px;
+  --s-2:  8px;
+  --s-3:  12px;
+  --s-4:  16px;
+  --s-5:  24px;
+  --s-6:  32px;
+  --s-7:  48px;
+  --s-8:  64px;
+  --s-9:  96px;
+  --s-10: 128px;
+
+  /* — Radii (industrial: small or NONE) — */
+  --r-0: 0px;        /* default — flat, hard */
+  --r-1: 2px;        /* tags, chips */
+  --r-2: 4px;        /* inputs, small buttons */
+  --r-pill: 999px;   /* pillar tags only */
+
+  /* — Borders — */
+  --bw-hairline: 1px;
+  --bw-rule:     2px;
+  --bw-stamp:    3px;
+
+  /* — Shadows: minimal. Industrial brand has depth from CONTRAST, not blur. — */
+  --shadow-stamp: 0 0 0 var(--bw-stamp) var(--signal-orange);
+  --shadow-lift:  0 12px 32px rgba(0,0,0,0.6);
+  --shadow-press: inset 0 0 0 2px var(--signal-orange);
+
+  /* — Motion (sparing; 120-220ms; ease-out is the only easing) — */
+  --ease:      cubic-bezier(0.2, 0.8, 0.2, 1);
+  --dur-fast:  120ms;
+  --dur-base:  180ms;
+  --dur-slow:  260ms;
+}
+
+/* ── Element styles ────────────────────────────────────────── */
+html, body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  letter-spacing: var(--track-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, .display {
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--track-display);
+  line-height: var(--lh-h);
+  color: var(--fg);
+  text-wrap: balance;
+}
+
+h1 { font-size: var(--fs-h1); font-weight: 800; line-height: var(--lh-display); letter-spacing: var(--track-display); }
+h2 { font-size: var(--fs-h2); font-weight: 700; }
+h3 { font-size: var(--fs-h3); font-weight: 700; letter-spacing: var(--track-h); }
+h4 { font-size: var(--fs-h4); font-weight: 600; letter-spacing: var(--track-h); }
+
+.eyebrow,
+.kicker {
+  font-family: var(--font-body);
+  font-size: var(--fs-eyebrow);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: var(--track-eyebrow);
+  color: var(--accent);
+  line-height: var(--lh-eyebrow);
+}
+
+/* — Marker / Placard voice — */
+.marker {
+  font-family: var(--font-marker);
+  font-weight: 400;
+  letter-spacing: 0.005em;
+  line-height: 0.95;
+  text-transform: none;
+  color: var(--accent);
+  /* slight hand-jitter — tilt + a hair of ink-bleed shadow */
+  transform: rotate(-1.2deg);
+  display: inline-block;
+}
+.marker--tight   { line-height: 0.85; letter-spacing: -0.01em; }
+.marker--right   { transform: rotate( 1.4deg); }
+.marker--upright { transform: rotate(0); }
+.marker--ink     { text-shadow: 0 0 0.5px currentColor; }   /* fattens the stroke a touch on Void */
+.marker--bone    { color: var(--bone); }
+.marker--void    { color: var(--void-black); }
+
+p { margin: 0 0 1em; max-width: 64ch; text-wrap: pretty; }
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  transition: color var(--dur-fast) var(--ease);
+}
+a:hover { color: var(--bone); }
+
+code, pre, kbd { font-family: var(--font-mono); font-size: 0.92em; }
+
+::selection { background: var(--accent); color: var(--void-black); }
+
+/* — Utility helpers — */
+.surface-void   { background: var(--void-black); color: var(--bone); }
+.surface-bone   { background: var(--bone);       color: var(--void-black); }
+.surface-signal { background: var(--signal-orange); color: var(--void-black); }
+.rule           { border-top: var(--bw-rule) solid var(--accent); }
+.stamp          { box-shadow: var(--shadow-stamp); }
+.grain::after {
+  content: "";
+  position: absolute; inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 3px 3px;
+  mix-blend-mode: overlay;
+  opacity: 0.6;
+}

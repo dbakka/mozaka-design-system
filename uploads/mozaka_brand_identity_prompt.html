@@ -1,0 +1,211 @@
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: var(--font-sans); }
+  .doc { max-width: 680px; padding: 0 0 3rem; }
+  .hero { background: #FF4500; color: #fff; padding: 2.5rem 2rem; border-radius: var(--border-radius-lg); margin-bottom: 2rem; }
+  .hero-eyebrow { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.7; margin-bottom: 0.5rem; }
+  .hero-title { font-size: 32px; font-weight: 500; line-height: 1.1; margin-bottom: 0.5rem; }
+  .hero-sub { font-size: 14px; opacity: 0.85; line-height: 1.5; }
+  .section { margin-bottom: 2rem; }
+  .section-label { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-text-secondary); margin-bottom: 0.75rem; padding-bottom: 0.5rem; border-bottom: 0.5px solid var(--color-border-tertiary); }
+  .card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1rem 1.25rem; margin-bottom: 0.75rem; }
+  .card-title { font-size: 14px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 0.4rem; display: flex; align-items: center; gap: 8px; }
+  .card-body { font-size: 13px; color: var(--color-text-secondary); line-height: 1.6; }
+  .tag { display: inline-block; font-size: 11px; padding: 2px 8px; border-radius: 20px; background: #FF4500; color: #fff; margin-right: 4px; margin-bottom: 4px; }
+  .tag-dark { background: #111; }
+  .tag-muted { background: var(--color-background-secondary); color: var(--color-text-secondary); border: 0.5px solid var(--color-border-tertiary); }
+  .pillar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 8px; margin-top: 0.5rem; }
+  .pillar { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 0.75rem; border-left: 3px solid #FF4500; }
+  .pillar-name { font-size: 12px; font-weight: 500; color: var(--color-text-primary); }
+  .pillar-sub { font-size: 11px; color: var(--color-text-secondary); margin-top: 2px; }
+  .phrase-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 0.5rem; }
+  .phrase { background: #111; color: #FF4500; border-radius: var(--border-radius-md); padding: 0.6rem 0.75rem; font-size: 13px; font-weight: 500; }
+  .color-row { display: flex; gap: 8px; margin-top: 0.5rem; flex-wrap: wrap; }
+  .swatch { width: 40px; height: 40px; border-radius: var(--border-radius-md); border: 0.5px solid var(--color-border-tertiary); }
+  .swatch-label { font-size: 10px; color: var(--color-text-secondary); margin-top: 3px; text-align: center; }
+  .swatch-wrap { text-align: center; }
+  .deliverable { display: flex; align-items: flex-start; gap: 10px; padding: 0.6rem 0; border-bottom: 0.5px solid var(--color-border-tertiary); }
+  .deliverable:last-child { border-bottom: none; }
+  .del-dot { width: 8px; height: 8px; border-radius: 50%; background: #FF4500; margin-top: 5px; flex-shrink: 0; }
+  .del-text { font-size: 13px; color: var(--color-text-primary); line-height: 1.5; }
+  .del-sub { font-size: 12px; color: var(--color-text-secondary); }
+  .copy-btn { background: #FF4500; color: #fff; border: none; border-radius: var(--border-radius-md); padding: 0.6rem 1.25rem; font-size: 13px; cursor: pointer; margin-top: 1rem; }
+  .copy-btn:hover { opacity: 0.9; }
+</style>
+
+<div class="doc">
+
+  <div class="hero">
+    <p class="hero-eyebrow">Brand Identity System — Master Prompt</p>
+    <h1 class="hero-title">Mozaka<br>Global Afrohouse Enterprise</h1>
+    <p class="hero-sub">A complete creative brief for building the Mozaka brand universe — music, community, events, and culture.</p>
+  </div>
+
+  <div class="section">
+    <p class="section-label">01 — Brand Foundation</p>
+    <div class="card">
+      <p class="card-title">Brand Essence</p>
+      <p class="card-body">Mozaka is the sonic bridge between ancient African heritage and the global electronic dancefloor. Born in Uganda, built for the world. Every design decision must feel like it was made at the intersection of a Kampala night market and a Berlin warehouse rave.</p>
+    </div>
+    <div class="card">
+      <p class="card-title">Brand Positioning Statement</p>
+      <p class="card-body">"For the global Afrohouse generation — Mozaka is the enterprise that turns African cultural DNA into the world's most compelling electronic music, events, and community."</p>
+    </div>
+    <div class="card">
+      <p class="card-title">Brand Personality</p>
+      <p class="card-body">
+        <span class="tag">Raw</span>
+        <span class="tag">Cultural</span>
+        <span class="tag">Electric</span>
+        <span class="tag">Bold</span>
+        <span class="tag">Community-first</span>
+        <span class="tag tag-dark">Global</span>
+        <span class="tag tag-dark">Rooted</span>
+      </p>
+    </div>
+  </div>
+
+  <div class="section">
+    <p class="section-label">02 — Visual Identity</p>
+    <div class="card">
+      <p class="card-title">Color System</p>
+      <div class="color-row">
+        <div class="swatch-wrap"><div class="swatch" style="background:#FF4500;"></div><p class="swatch-label">Mozaka Orange</p></div>
+        <div class="swatch-wrap"><div class="swatch" style="background:#111111;"></div><p class="swatch-label">Deep Black</p></div>
+        <div class="swatch-wrap"><div class="swatch" style="background:#F5F0E8;"></div><p class="swatch-label">Bone White</p></div>
+        <div class="swatch-wrap"><div class="swatch" style="background:#F0C000;"></div><p class="swatch-label">Neiwe Yellow</p></div>
+        <div class="swatch-wrap"><div class="swatch" style="background:#4B2E83;"></div><p class="swatch-label">Deep Purple</p></div>
+        <div class="swatch-wrap"><div class="swatch" style="background:#5A8F2E;"></div><p class="swatch-label">Savanna Green</p></div>
+      </div>
+      <p class="card-body" style="margin-top:0.75rem;">Orange is always dominant. Black and bone white are the structural neutrals. Secondary colors (yellow, purple, green) are reserved for individual pillar identities and release art.</p>
+    </div>
+    <div class="card">
+      <p class="card-title">Typography System</p>
+      <p class="card-body">
+        <strong style="font-weight:500;">Display / Mozaka Wordmark:</strong> Custom graffiti-tribal hybrid — used for the Mozaka name only. Never stretched or recolored.<br><br>
+        <strong style="font-weight:500;">Headlines:</strong> Heavy sans-serif, all caps, wide tracking (e.g. Black Han Sans, Big Shoulders Display, or similar compressed grotesque). Used for event names, pillar names, section headers.<br><br>
+        <strong style="font-weight:500;">Body / UI:</strong> Clean modern sans-serif (Inter, DM Sans). Used for descriptions, bios, facts.<br><br>
+        <strong style="font-weight:500;">Accent / Cultural:</strong> Blackletter or ornate serif for specific releases (Kakaaba, Bwakedde) to signal heritage. Used sparingly.
+      </p>
+    </div>
+    <div class="card">
+      <p class="card-title">Pattern System — Afro-Ndebele Remix</p>
+      <p class="card-body">Develop a proprietary Mozaka geometric pattern system rooted in Ndebele geometry — triangles, chevrons, concentric circles — but remixed with the Mozaka spiral motif (from the logo). Patterns come in 3 densities: full-fill, halftone, and outline. Primary colorway: orange on black. Secondary: bone on orange. Used as backgrounds, texture overlays, textile prints, and merch.</p>
+    </div>
+    <div class="card">
+      <p class="card-title">Logo Usage Rules</p>
+      <p class="card-body">Primary: Mozaka wordmark (graffiti style) on white or black only. Secondary: Circular badge/seal version for merchandise and embroidery. Tertiary: "M" monogram for app icons and small formats. Never place the logo on busy photography without a solid block behind it. Minimum clear space = 1x logo height on all sides.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <p class="section-label">03 — Pillar Identity System</p>
+    <div class="pillar-grid">
+      <div class="pillar">
+        <p class="pillar-name">🎵 Mozaka Music</p>
+        <p class="pillar-sub">Release covers, singles art, Spotify headers</p>
+      </div>
+      <div class="pillar">
+        <p class="pillar-name">🏃 Run Club</p>
+        <p class="pillar-sub">Route cards, event posters, Saturday morning kits</p>
+      </div>
+      <div class="pillar">
+        <p class="pillar-name">💊 Orange Pill</p>
+        <p class="pillar-sub">Rave flyers, ticket design, countdown posts</p>
+      </div>
+      <div class="pillar">
+        <p class="pillar-name">🎪 Camp Mozaka</p>
+        <p class="pillar-sub">Camp kits, producer passes, recap decks</p>
+      </div>
+      <div class="pillar">
+        <p class="pillar-name">📍 Coordinates</p>
+        <p class="pillar-sub">Location reveal cards, stream graphics, B2B sets</p>
+      </div>
+      <div class="pillar">
+        <p class="pillar-name">🌍 MozakaVille</p>
+        <p class="pillar-sub">Luxury brochure, experience booklets, itinerary cards</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <p class="section-label">04 — Catchphrases & Fan Language</p>
+    <div class="phrase-grid">
+      <div class="phrase">Afrohouse to the Moon</div>
+      <div class="phrase">I'm a Housewife</div>
+      <div class="phrase">Afrohusband</div>
+      <div class="phrase">The Frequency Chose Me</div>
+      <div class="phrase">Orange Pilled</div>
+      <div class="phrase">Built on the Beat</div>
+      <div class="phrase">African by Root, Global by Sound</div>
+      <div class="phrase">We Own the Morning</div>
+      <div class="phrase">Run the Rave</div>
+      <div class="phrase">Mozaka Made</div>
+      <div class="phrase">The Culture is Electronic</div>
+      <div class="phrase">Straight from the Village to the Club</div>
+    </div>
+    <p class="card-body" style="margin-top:0.75rem; font-size:12px; color: var(--color-text-secondary);">Each phrase should exist as: a Mozaka-font sticker, a t-shirt graphic, a social caption template, and a quote card.</p>
+  </div>
+
+  <div class="section">
+    <p class="section-label">05 — Template Deliverables</p>
+    <div class="card">
+      <div class="deliverable">
+        <div class="del-dot"></div>
+        <div class="del-text"><strong style="font-weight:500;">PowerPoint / Pitch Deck Template</strong><br><span class="del-sub">Cover, agenda, stats slide, music slide, team bio, partner slide, closing — all in Mozaka brand</span></div>
+      </div>
+      <div class="deliverable">
+        <div class="del-dot"></div>
+        <div class="del-text"><strong style="font-weight:500;">Event Poster Templates × 6</strong><br><span class="del-sub">One per pillar. Orange Pill (rave), Run Club (morning), Camp (creative), Coordinates (location), MozakaVille (luxury), Music Release</span></div>
+      </div>
+      <div class="deliverable">
+        <div class="del-dot"></div>
+        <div class="del-text"><strong style="font-weight:500;">Ticket Design Templates</strong><br><span class="del-sub">Orange Pill ticket, Run Club bib, Camp pass, MozakaVille wristband — all with QR placeholder</span></div>
+      </div>
+      <div class="deliverable">
+        <div class="del-dot"></div>
+        <div class="del-text"><strong style="font-weight:500;">Social Media Templates</strong><br><span class="del-sub">Instagram post (1:1 & 4:5), Story (9:16), Twitter/X post, YouTube thumbnail, Facebook cover — each in announcement, release, and community variants</span></div>
+      </div>
+      <div class="deliverable">
+        <div class="del-dot"></div>
+        <div class="del-text"><strong style="font-weight:500;">Video Content Templates</strong><br><span class="del-sub">Intro/outro bumper, lower thirds, location title card, streaming overlay, countdown screen</span></div>
+      </div>
+      <div class="deliverable">
+        <div class="del-dot"></div>
+        <div class="del-text"><strong style="font-weight:500;">Quote Card Templates</strong><br><span class="del-sub">Artist quote, fan testimonial, lyric pull, community shoutout — in Mozaka typography with pattern backgrounds</span></div>
+      </div>
+      <div class="deliverable">
+        <div class="del-dot"></div>
+        <div class="del-text"><strong style="font-weight:500;">Artist & Team Bio Page</strong><br><span class="del-sub">Profile card with photo, name, role, social handles, short bio, featured tracks</span></div>
+      </div>
+      <div class="deliverable">
+        <div class="del-dot"></div>
+        <div class="del-text"><strong style="font-weight:500;">Merch Templates</strong><br><span class="del-sub">T-shirt graphic set (front + back), cap embroidery file, tote bag, hoodie — using catchphrases + Ndebele-Mozaka patterns</span></div>
+      </div>
+      <div class="deliverable">
+        <div class="del-dot"></div>
+        <div class="del-text"><strong style="font-weight:500;">Business Card</strong><br><span class="del-sub">Team-facing card with Mozaka badge, name, role, handle, and QR to bio</span></div>
+      </div>
+      <div class="deliverable">
+        <div class="del-dot"></div>
+        <div class="del-text"><strong style="font-weight:500;">Brand Guide Document</strong><br><span class="del-sub">The master PDF covering: logo, colors, type, patterns, pillars, voice & tone, dos and don'ts</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <p class="section-label">06 — Brand Voice & Tone</p>
+    <div class="card">
+      <p class="card-body">
+        <strong style="font-weight:500;">Speak like a creator, not a corporation.</strong> Mozaka's voice is confident, culturally grounded, occasionally poetic, and always community-forward. It uses African languages (Luganda, Runyankole) naturally — not as an aesthetic, but because that's who we are.<br><br>
+        Do: "The frequency chose us. Now we're coming for the dancefloor."<br>
+        Don't: "Mozaka is proud to announce our latest release."<br><br>
+        <strong style="font-weight:500;">Key tones:</strong> Bold on announcements. Warm on community. Poetic on releases. Direct on events.
+      </p>
+    </div>
+  </div>
+
+  <button class="copy-btn" onclick="sendPrompt('Now let\'s start building. Generate the first Mozaka brand asset — the master PowerPoint presentation template using the brand identity structure above.')">Start building assets ↗</button>
+
+</div>

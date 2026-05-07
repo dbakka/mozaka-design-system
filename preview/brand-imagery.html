@@ -1,0 +1,49 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0;background:#0A0A0A;color:var(--bone);font-family:var(--font-body);height:100%;overflow:hidden;}
+  .card{display:grid;grid-template-columns:1.4fr 1fr;height:100%;}
+  .hero{position:relative;overflow:hidden;background:#0A0A0A;}
+  .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 28%;filter:contrast(1.22) saturate(0.62) brightness(0.74);}
+  .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 60% 35%,rgba(249,75,15,0.18),transparent 55%),linear-gradient(180deg,rgba(10,10,10,.1) 0%,rgba(10,10,10,.55) 60%,rgba(10,10,10,.96) 100%);pointer-events:none;}
+  .hero::after{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(rgba(255,255,255,.06) 1px,transparent 1px);background-size:3px 3px;mix-blend-mode:overlay;opacity:.55;}
+  .hero .stamp{position:absolute;left:18px;top:18px;background:#F94B0F;color:#0A0A0A;font-family:var(--font-display);font-weight:800;font-size:10px;letter-spacing:.16em;text-transform:uppercase;padding:5px 9px;z-index:2;}
+  .hero .marker{position:absolute;right:20px;bottom:20px;font-family:"Caveat Brush",cursive;font-size:46px;line-height:.85;color:#F4EFE6;transform:rotate(-2deg);text-shadow:2px 2px 0 #F94B0F;z-index:2;max-width:60%;text-align:right;}
+  .specs{padding:24px;display:flex;flex-direction:column;gap:16px;background:#0A0A0A;}
+  .label{font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#F94B0F;}
+  .h{font-family:var(--font-display);font-weight:800;font-size:26px;line-height:.95;letter-spacing:-.02em;text-transform:uppercase;color:#F4EFE6;}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:6px 14px;}
+  .k{font-family:var(--font-mono);font-size:10px;color:#6E6E6E;}
+  .v{font-family:var(--font-mono);font-size:10px;color:#F4EFE6;}
+  .rules{display:flex;flex-direction:column;gap:5px;}
+  .r{display:flex;gap:8px;font-size:11px;line-height:1.4;color:#F4EFE6;}
+  .r .yes{color:#F94B0F;font-weight:700;width:14px;flex-shrink:0;}
+  .r .no{color:#6E6E6E;font-weight:700;width:14px;flex-shrink:0;text-decoration:line-through;}
+  .r.muted{color:#6E6E6E;}
+</style></head>
+<body><div class="card">
+  <div class="hero">
+    <span class="stamp">Night Owl LUT</span>
+    <img src="../assets/photos/duo-sunglasses.jpg" alt="Mozaka">
+    <div class="marker">2am light only</div>
+  </div>
+  <div class="specs">
+    <div>
+      <div class="label">Photography</div>
+      <div class="h">Lifted blacks.<br>Warm mids.<br>Half-lit.</div>
+    </div>
+    <div class="grid">
+      <span class="k">contrast</span><span class="v">1.18 – 1.22</span>
+      <span class="k">saturation</span><span class="v">0.60 – 0.72</span>
+      <span class="k">brightness</span><span class="v">0.74 – 0.82</span>
+      <span class="k">hue shift</span><span class="v">-4° (warm)</span>
+      <span class="k">grain</span><span class="v">3px · 5–7%</span>
+      <span class="k">scrim</span><span class="v">radial Signal · 14%</span>
+    </div>
+    <div class="rules">
+      <div class="r"><span class="yes">+</span><span>Half-silhouettes, profile lighting, single key</span></div>
+      <div class="r"><span class="yes">+</span><span>Deep wardrobe, watch metal, sunglasses glare</span></div>
+      <div class="r muted"><span class="no">×</span><span>Ring-light beauty, white cyc, glossy speculars</span></div>
+      <div class="r muted"><span class="no">×</span><span>Two-tone orange-pink ramps, mesh gradients</span></div>
+    </div>
+  </div>
+</div></body></html>

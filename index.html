@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOZAKA — Brand Guidelines</title>
+    <link rel="stylesheet" href="colors_and_type.css">
+    <style>
+        :root {
+            --sidebar-width: 280px;
+            --header-height: 80px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--void-black);
+            color: var(--bone);
+            font-family: var(--font-body);
+            overflow-x: hidden;
+        }
+
+        /* --- Layout --- */
+        .app-container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* --- Sidebar --- */
+        .sidebar {
+            width: var(--sidebar-width);
+            height: 100vh;
+            position: sticky;
+            top: 0;
+            background: var(--void-94);
+            border-right: var(--bw-hairline) solid var(--divider);
+            padding: var(--s-6) var(--s-5);
+            display: flex;
+            flex-direction: column;
+            gap: var(--s-7);
+            z-index: 100;
+        }
+
+        .sidebar-logo img {
+            height: 32px;
+            width: auto;
+        }
+
+        .nav-group {
+            display: flex;
+            flex-direction: column;
+            gap: var(--s-3);
+        }
+
+        .nav-label {
+            font-size: var(--fs-eyebrow);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: var(--track-eyebrow);
+            color: var(--accent);
+            opacity: 0.8;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: var(--s-1);
+        }
+
+        .nav-links a {
+            font-size: var(--fs-small);
+            color: var(--fg-muted);
+            text-decoration: none;
+            border-bottom: none;
+            transition: color var(--dur-fast) var(--ease);
+            display: block;
+            padding: var(--s-1) 0;
+        }
+
+        .nav-links a:hover {
+            color: var(--bone);
+        }
+
+        /* --- Main Content --- */
+        .main-content {
+            flex: 1;
+            padding: var(--s-8);
+            max-width: 1400px;
+        }
+
+        header {
+            margin-bottom: var(--s-9);
+        }
+
+        .brand-intro {
+            max-width: 60ch;
+        }
+
+        .brand-intro h1 {
+            font-size: var(--fs-h1);
+            margin-bottom: var(--s-4);
+        }
+
+        .brand-intro p {
+            font-size: var(--fs-h4);
+            color: var(--fg-muted);
+        }
+
+        /* --- Sections & Grids --- */
+        section {
+            margin-bottom: var(--s-10);
+            scroll-margin-top: var(--s-8);
+        }
+
+        .section-header {
+            margin-bottom: var(--s-6);
+            border-bottom: var(--bw-rule) solid var(--divider);
+            padding-bottom: var(--s-3);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: var(--s-6);
+        }
+
+        .card-container {
+            background: var(--bg-card);
+            border: var(--bw-hairline) solid var(--divider);
+            height: 480px;
+            display: flex;
+            flex-direction: column;
+            transition: border-color var(--dur-base) var(--ease);
+        }
+
+        .card-container:hover {
+            border-color: var(--accent);
+        }
+
+        .card-header {
+            padding: var(--s-3) var(--s-4);
+            border-bottom: var(--bw-hairline) solid var(--divider);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-title {
+            font-family: var(--font-display);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: var(--track-eyebrow);
+        }
+
+        .card-container iframe {
+            flex: 1;
+            width: 100%;
+            border: none;
+            background: transparent;
+        }
+
+        /* --- Footer --- */
+        footer {
+            margin-top: var(--s-10);
+            padding-top: var(--s-6);
+            border-top: var(--bw-hairline) solid var(--divider);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--fg-muted);
+            font-size: var(--fs-small);
+        }
+
+        .mythos {
+            font-family: var(--font-display);
+            font-size: 14px;
+            letter-spacing: var(--track-display);
+            color: var(--bone);
+        }
+
+        @media (max-width: 1024px) {
+            .sidebar { display: none; }
+            .main-content { padding: var(--s-5); }
+            .grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body class="grain">
+    <div class="app-container">
+        <nav class="sidebar">
+            <div class="sidebar-logo">
+                <img src="assets/logos/wordmark-signal.png" alt="MOZAKA">
+            </div>
+            
+            <div class="nav-group">
+                <span class="nav-label">Foundations</span>
+                <ul class="nav-links">
+                    <li><a href="#voice">Voice & Tone</a></li>
+                    <li><a href="#pillars">Live Pillars</a></li>
+                    <li><a href="#deliverables">Deliverables</a></li>
+                    <li><a href="#duo">The Duo</a></li>
+                    <li><a href="#imagery">Imagery</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-group">
+                <span class="nav-label">Identity</span>
+                <ul class="nav-links">
+                    <li><a href="#logos">Logos</a></li>
+                    <li><a href="#patterns">Patterns</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-group">
+                <span class="nav-label">Tokens</span>
+                <ul class="nav-links">
+                    <li><a href="#colors">Colors</a></li>
+                    <li><a href="#type">Typography</a></li>
+                    <li><a href="#spacing">Layout & Spacing</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-group">
+                <span class="nav-label">UI System</span>
+                <ul class="nav-links">
+                    <li><a href="#components">Components</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <main class="main-content">
+            <header>
+                <div class="brand-intro">
+                    <h1>DESIGN SYSTEM</h1>
+                    <p>The Night Owl Sound. Dark, industrial Afrohouse aimed at the global stage. Confident, rooted, mythic.</p>
+                </div>
+            </header>
+
+            <!-- FOUNDATIONS -->
+            <section id="voice">
+                <div class="section-header">
+                    <h3>Foundations</h3>
+                </div>
+                <div class="grid">
+                    <div class="card-container">
+                        <div class="card-header"><span class="card-title">Voice & Tone</span></div>
+                        <iframe src="preview/brand-voice.html"></iframe>
+                    </div>
+                    <div class="card-container">
+                        <div class="card-header"><span class="card-title">Tone Modes</span></div>
+                        <iframe src="preview/brand-voice-tones.html"></iframe>
+                    </div>
+                    <div class="card-container">
+                        <div class="card-header"><span class="card-title">Catchphrases</span></div>
+                        <iframe src="preview/brand-catchphrases.html"></iframe>
+                    </div>
+                    <div class="card-container">
+                        <div class="card-header"><span class="card-title">Pillars</span></div>
+                        <iframe src="preview/brand-pillars.html"></iframe>
+                    </div>
+                </div>
+            </section>
+
+            <section id="deliverables">
+                <div class="grid">
+                    <div class="card-container" style="grid-column: span 2; height: 600px;">
+                        <div class="card-header"><span class="card-title">Deliverables Checklist</span></div>
+                        <iframe src="preview/brand-deliverables.html"></iframe>
+                    </div>
+                </div>
+            </section>
+
+            <section id="duo">
+                <div class="grid">
+                    <div class="card-container">
+                        <div class="card-header"><span class="card-title">The Duo</span></div>
+                        <iframe src="preview/brand-duo.html"></iframe>
+                    </div>
+                    <div class="card-container">
+                        <div class="card-header"><span class="card-title">Duo Editorial</span></div>
+                        <iframe src="preview/brand-duo-editorial.html"></iframe>
+                    </div>
+                    <div class="card-container">
+                        <div class="card-header"><span class="card-title">Duo Profile</span></div>
+                        <iframe src="preview/brand-duo-profile.html"></iframe>
+                    </div>
+                    <div class="card-container">
+                        <div class="card-header"><span class="card-title">Duo Sunglasses</span></div>
+                        <iframe src="preview/brand-duo-sunglasses.html"></iframe>
+                    </div>
+                    <div class="card-container">
+                        <div class="card-header"><span class="card-title">Imagery System</span></div>
+                        <iframe src="preview/brand-imagery.html"></iframe>
+                    </div>
+                </div>
+            </section>
+
+            <!-- IDENTITY -->
+            <section id="logos">
+                <div class="section-header">
+                    <h3>Identity</h3>
+                </div>
+                <div class="grid">
+                    <div class="card-container">
+                        <div class="card-header"><span class="card-title">Helmet Crest</span></div>
+                        <iframe src="preview/brand-helmet-crest.html"></iframe>
+                    </div>
+                    <div class="card-container">
+                        <div class="card-header"><span class="card-title">Wordmark</span></div>
+                        <iframe src="preview/brand-wordmark.html"></iframe>
+                    </div>
+                </div>
+            </section>
+
+            <section id="patterns">
+                <div class="grid">
+                    <div class="card-container">
+                        <div class="card-header"><span class="card-title">Pattern: Helmet Tile</span></div>
+                        <iframe src="preview/brand-pattern-helmet-tile.html"></iframe>
+                    </div>
+                    <div class="card-container">
+                        <div class="card-header"><span class="card-title">Pattern: Spiral Chevron</span></div>
+                        <iframe src="preview/brand-pattern-spiral-chevron.html"></iframe>
+                    </div>
+                    <div class="card-container">
+                        <div class="card-header"><span class="card-title">Pattern: Crest Halftone</span></div>
+                        <iframe src="preview/brand-pattern-crest-halftone.html"></iframe>
+                    </div>
+                    <div class="card-container">
+                        <div class="card-header"><span class="card-title">Pattern: Stepped Diamond</span></div>
+                        <iframe src="preview/brand-pattern-stepped-diamond.html"></iframe>
+                    </div>
+                    <div class="card-container">
+                        <div class="card-header"><span class="card-title">Pattern: Mosaic Shard</span></div>
+                        <iframe src="preview/brand-pattern-mosaic-shard.html"></iframe>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TOKENS -->
+            <section id="colors">
+                <div class="section-header">
+                    <h3>Design Tokens</h3>
+                </div>
+                <div class="grid">
+                    <div class="card-container">
+                        <div class="card-header"><span class="card-title">Core Palette</span></div>
+                        <iframe src="preview/colors-core.html"></iframe>
+                    </div>
+                    <div class="card-container">
+                        <div class="card-header"><span class="card-title">Tonal Variations</span></div>
+                        <iframe src="preview/colors-tonal.html"></iframe>
+                    </div>
+                    <div class="card-container">
+                        <div class="card-header"><span class="card-title">Color Lockups</span></div>
+                        <iframe src="preview/colors-lockups.html"></iframe>
+                    </div>
+                </div>
+            </section>
+
+            <section id="type">
+                <div class="grid">
+                    <div class="card-container">
+                        <div class="card-header"><span class="card-title">Display: Monument</span></div>
+                        <iframe src="preview/type-display.html"></iframe>
+                    </div>
+                    <div class="card-container">
+                        <div class="card-header"><span class="card-title">Body: SF Pro</span></div>
+                        <iframe src="preview/type-body.html"></iframe>
+                    </div>
+                    <div class="card-container">
+                        <div class="card-header"><span class="card-title">Eyebrows</span></div>
+                        <iframe src="preview/type-eyebrows.html"></iframe>
+                    </div>
+                    <div class="card-container">
+                        <div class="card-header"><span class="card-title">Marker: Modak</span></div>
+                        <iframe src="preview/type-marker.html"></iframe>
+                    </div>
+                    <div class="card-container">
+                        <div class="card-header"><span class="card-title">Type Scale</span></div>
+                        <iframe src="preview/type-scale.html"></iframe>
+                    </div>
+                </div>
+            </section>
+
+            <section id="spacing">
+                <div class="grid">
+                    <div class="card-container">
+                        <div class="card-header"><span class="card-title">Spacing Scale</span></div>
+                        <iframe src="preview/spacing-scale.html"></iframe>
+                    </div>
+                    <div class="card-container">
+                        <div class="card-header"><span class="card-title">Radii & Borders</span></div>
+                        <iframe src="preview/spacing-radii-borders.html"></iframe>
+                    </div>
+                </div>
+            </section>
+
+            <!-- COMPONENTS -->
+            <section id="components">
+                <div class="section-header">
+                    <h3>UI System</h3>
+                </div>
+                <div class="grid">
+                    <div class="card-container">
+                        <div class="card-header"><span class="card-title">Buttons</span></div>
+                        <iframe src="preview/components-buttons.html"></iframe>
+                    </div>
+                    <div class="card-container">
+                        <div class="card-header"><span class="card-title">Cards</span></div>
+                        <iframe src="preview/components-cards.html"></iframe>
+                    </div>
+                    <div class="card-container">
+                        <div class="card-header"><span class="card-title">Inputs</span></div>
+                        <iframe src="preview/components-inputs.html"></iframe>
+                    </div>
+                    <div class="card-container">
+                        <div class="card-header"><span class="card-title">Pills & Badges</span></div>
+                        <iframe src="preview/components-pills-badges.html"></iframe>
+                    </div>
+                    <div class="card-container">
+                        <div class="card-header"><span class="card-title">Interactive States</span></div>
+                        <iframe src="preview/components-states.html"></iframe>
+                    </div>
+                </div>
+            </section>
+
+            <footer>
+                <div class="mythos">AFROHOUSE TO THE MOON</div>
+                <div>&copy; 2026 MOZAKA / DBAKKA STUDIOS. ALL RIGHTS RESERVED.</div>
+            </footer>
+        </main>
+    </div>
+</body>
+</html>

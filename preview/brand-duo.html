@@ -1,0 +1,44 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0;background:#0A0A0A;color:var(--bone);font-family:var(--font-body);height:100%;overflow:hidden;}
+  .card{padding:0;display:grid;grid-template-columns:1fr 1fr 1fr;height:100%;gap:0;}
+  .frame{position:relative;overflow:hidden;}
+  .frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 28%;}
+  .scrim{position:absolute;inset:0;pointer-events:none;}
+  .lbl{position:absolute;left:14px;bottom:14px;z-index:2;display:flex;flex-direction:column;gap:4px;}
+  .eb{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#F94B0F;}
+  .name{font-family:var(--font-display);font-weight:800;font-size:20px;line-height:1;letter-spacing:-.02em;text-transform:uppercase;color:#F4EFE6;}
+  .stamp{position:absolute;top:14px;right:14px;z-index:3;background:#F94B0F;color:#0A0A0A;font-family:var(--font-display);font-weight:800;font-size:10px;letter-spacing:.14em;text-transform:uppercase;padding:4px 8px;}
+
+  /* 1 — As shot, light scrim only */
+  .raw .scrim{background:linear-gradient(180deg,rgba(244,239,230,0) 60%,rgba(244,239,230,.85) 100%);}
+  .raw .eb{color:#D43A05;}
+  .raw .name{color:#0A0A0A;}
+
+  /* 2 — Night Owl LUT: warm, vivid, lifted blacks. Brighter, more saturation, signal glow */
+  .lut img{filter:contrast(1.08) saturate(1.25) brightness(1.02) hue-rotate(-6deg);}
+  .lut .scrim{background:radial-gradient(ellipse at 60% 30%,rgba(249,75,15,0.32),transparent 60%),linear-gradient(180deg,rgba(10,10,10,0) 40%,rgba(10,10,10,.55) 100%);mix-blend-mode:normal;}
+
+  /* 3 — Press / Inner Circle: keep the warmth, slight grain, deeper bottom */
+  .press img{filter:contrast(1.12) saturate(1.18) brightness(0.95) hue-rotate(-4deg);}
+  .press .scrim{background:radial-gradient(ellipse at 50% 25%,rgba(249,75,15,0.22),transparent 55%),linear-gradient(180deg,rgba(10,10,10,0) 45%,rgba(10,10,10,.75) 100%);}
+  .press::after{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(rgba(255,255,255,.06) 1px,transparent 1px);background-size:3px 3px;mix-blend-mode:overlay;opacity:.45;}
+</style></head>
+<body><div class="card">
+  <div class="frame raw">
+    <img src="../assets/photos/duo-fullbody.jpg" alt="Mozaka — as shot">
+    <div class="scrim"></div>
+    <div class="lbl"><span class="eb">As shot · white cyc</span><span class="name">Bakka &nbsp; Kava</span></div>
+  </div>
+  <div class="frame lut">
+    <img src="../assets/photos/duo-fullbody.jpg" alt="Mozaka — Night Owl LUT">
+    <div class="scrim"></div>
+    <div class="lbl"><span class="eb">Night Owl LUT</span><span class="name">Bakka &nbsp; Kava</span></div>
+  </div>
+  <div class="frame press">
+    <span class="stamp">Inner Circle</span>
+    <img src="../assets/photos/duo-fullbody.jpg" alt="Mozaka — press">
+    <div class="scrim"></div>
+    <div class="lbl"><span class="eb">Press · grain + glow</span><span class="name">Bakka &nbsp; Kava</span></div>
+  </div>
+</div></body></html>

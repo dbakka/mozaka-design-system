@@ -1,0 +1,31 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0;background:#0A0A0A;color:var(--bone);font-family:var(--font-body);height:100%;}
+  .card{padding:24px;display:flex;flex-direction:column;gap:18px;height:100%;box-sizing:border-box;}
+  .group{display:flex;flex-direction:column;gap:8px;}
+  .label{font-size:11px;font-family:var(--font-body);font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#F94B0F;}
+  .row{display:flex;gap:0;border:1px solid #2D2D2D;}
+  .chip{flex:1;height:48px;display:flex;align-items:flex-end;padding:6px 8px;font-family:var(--font-mono);font-size:10px;color:rgba(255,255,255,.65);}
+  .chip.lt{color:rgba(0,0,0,.55);}
+</style></head>
+<body><div class="card">
+  <div class="group"><div class="label">Void tones — surface raises</div><div class="row">
+    <div class="chip" style="background:#0A0A0A">#0A0A0A</div>
+    <div class="chip" style="background:#141414">#141414</div>
+    <div class="chip" style="background:#1B1B1B">#1B1B1B</div>
+    <div class="chip" style="background:#232323">#232323</div>
+    <div class="chip" style="background:#2D2D2D">#2D2D2D</div>
+    <div class="chip" style="background:#4A4A4A">#4A4A4A</div>
+    <div class="chip" style="background:#6E6E6E">#6E6E6E</div>
+  </div></div>
+  <div class="group"><div class="label">Signal — brand + states</div><div class="row">
+    <div class="chip" style="background:#F94B0F">#F94B0F</div>
+    <div class="chip" style="background:#D43A05">#D43A05 · pressed</div>
+    <div class="chip lt" style="background:rgba(249,75,15,0.12);color:#F94B0F">12% tint</div>
+  </div></div>
+  <div class="group"><div class="label">Bone tones — print only</div><div class="row">
+    <div class="chip lt" style="background:#F4EFE6">#F4EFE6</div>
+    <div class="chip lt" style="background:#E8E1D3">#E8E1D3</div>
+    <div class="chip lt" style="background:#D8D0BE">#D8D0BE</div>
+  </div></div>
+</div></body></html>

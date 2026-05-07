@@ -1,0 +1,18 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0;background:#0A0A0A;color:var(--bone);font-family:var(--font-body);height:100%;}
+  .card{padding:24px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;height:100%;box-sizing:border-box;align-items:center;justify-items:center;}
+  .frame{width:100%;height:100%;display:flex;align-items:center;justify-content:center;padding:18px;box-sizing:border-box;position:relative;}
+  .void{background:#0A0A0A}
+  .bone{background:#F4EFE6}
+  .signal{background:#F94B0F}
+  .frame img{max-width:100%;max-height:100%;object-fit:contain;}
+  .lbl{position:absolute;left:14px;bottom:10px;font-family:var(--font-body);font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;}
+  .void .lbl{color:#F94B0F}
+  .bone .lbl,.signal .lbl{color:#0A0A0A}
+</style></head>
+<body><div class="card">
+  <div class="frame void"><img src="../assets/logos/wordmark-signal.png"><span class="lbl">Wordmark · Signal/Void</span></div>
+  <div class="frame bone"><img src="../assets/logos/wordmark-void.png"><span class="lbl">Wordmark · Void/Bone</span></div>
+  <div class="frame signal"><img src="../assets/logos/wordmark-bone.png"><span class="lbl">Wordmark · Bone/Signal</span></div>
+</div></body></html>
