@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MOZAKA RUN CLUB — Brand System</title>
+  <link rel="stylesheet" href="./brand/css-variables.css">
+  <style>
+    :root {
+      --sidebar-width: 280px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--usiku);
+      color: var(--pumzi);
+      font-family: var(--font-body);
+      overflow-x: hidden;
+    }
+
+    .app-container {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: var(--sidebar-width);
+      height: 100vh;
+      position: sticky;
+      top: 0;
+      background: var(--usiku-raise);
+      border-right: 1px solid var(--color-divider);
+      padding: var(--s-6) var(--s-5);
+      display: flex;
+      flex-direction: column;
+      gap: var(--s-7);
+      z-index: 100;
+      overflow-y: auto;
+    }
+
+    .sidebar-brand {
+      display: flex;
+      flex-direction: column;
+      gap: var(--s-2);
+    }
+
+    .sidebar-back {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--ngozi);
+      text-decoration: none;
+      border: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 120ms;
+    }
+    .sidebar-back:hover { color: var(--pumzi); }
+    .sidebar-back::before { content: "←"; }
+
+    .sidebar-title {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      line-height: 0.95;
+      color: var(--pumzi);
+    }
+
+    .sidebar-sub {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--dawu);
+    }
+
+    .nav-group {
+      display: flex;
+      flex-direction: column;
+      gap: var(--s-3);
+    }
+
+    .nav-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--dawu);
+      opacity: 0.9;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      color: var(--ngozi);
+      text-decoration: none;
+      border: none;
+      display: block;
+      padding: 4px 0;
+      transition: color 120ms;
+    }
+    .nav-links a:hover { color: var(--pumzi); }
+
+    /* Main */
+    .main-content {
+      flex: 1;
+      padding: var(--s-8);
+      max-width: 1400px;
+    }
+
+    header {
+      margin-bottom: var(--s-9);
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+
+    .brand-intro h1 {
+      font-family: var(--font-display);
+      font-size: clamp(48px, 6vw, 80px);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      line-height: 0.95;
+      color: var(--pumzi);
+      margin-bottom: var(--s-4);
+    }
+
+    .brand-intro h1 span {
+      color: var(--dawu);
+    }
+
+    .brand-intro p {
+      font-size: 16px;
+      color: var(--ngozi);
+      max-width: 52ch;
+    }
+
+    .header-mark {
+      opacity: 0.12;
+      flex-shrink: 0;
+    }
+
+    section {
+      margin-bottom: var(--s-10);
+      scroll-margin-top: var(--s-8);
+    }
+
+    .section-header {
+      margin-bottom: var(--s-6);
+      padding-bottom: var(--s-3);
+      border-bottom: 2px solid var(--color-divider);
+      display: flex;
+      align-items: center;
+      gap: var(--s-4);
+    }
+
+    .section-header h3 {
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--ngozi);
+    }
+
+    .section-header .accent-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--dawu);
+      flex-shrink: 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+      gap: var(--s-6);
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+
+    .card-container {
+      background: var(--usiku-card);
+      border: 1px solid var(--color-divider);
+      height: 480px;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 180ms;
+    }
+
+    .card-container:hover {
+      border-color: var(--dawu);
+    }
+
+    .card-container.tall { height: 600px; }
+    .card-container.short { height: 320px; }
+    .card-container.wide { grid-column: span 2; }
+
+    .card-header {
+      padding: var(--s-3) var(--s-4);
+      border-bottom: 1px solid var(--color-divider);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .card-title {
+      font-family: var(--font-display);
+      font-size: 11px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--ngozi);
+    }
+
+    .card-tag {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--usiku);
+      background: var(--dawu);
+      padding: 2px 8px;
+    }
+
+    .card-container iframe {
+      flex: 1;
+      width: 100%;
+      border: none;
+      background: transparent;
+    }
+
+    footer {
+      margin-top: var(--s-10);
+      padding-top: var(--s-6);
+      border-top: 1px solid var(--color-divider);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--ngozi);
+      font-size: 12px;
+    }
+
+    .footer-tagline {
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      color: var(--pumzi);
+    }
+
+    @media (max-width: 1024px) {
+      .sidebar { display: none; }
+      .main-content { padding: var(--s-5); }
+      .grid { grid-template-columns: 1fr; }
+      .card-container.wide { grid-column: span 1; }
+    }
+  </style>
+</head>
+<body>
+<div class="app-container">
+
+  <nav class="sidebar">
+    <div class="sidebar-brand">
+      <a class="sidebar-back" href="../index.html">Mozaka Main</a>
+      <div class="sidebar-title">Run<br>Club</div>
+      <div class="sidebar-sub">Brand System</div>
+    </div>
+
+    <div class="nav-group">
+      <span class="nav-label">Foundations</span>
+      <ul class="nav-links">
+        <li><a href="#voice">Voice & Personality</a></li>
+        <li><a href="#copy">Copy Samples</a></li>
+        <li><a href="#tagline">Tagline System</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <span class="nav-label">Identity</span>
+      <ul class="nav-links">
+        <li><a href="#logo">The Striding Sun Mark</a></li>
+        <li><a href="#logo-lockups">Logo Lockups</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <span class="nav-label">Tokens</span>
+      <ul class="nav-links">
+        <li><a href="#colors">Color Palette</a></li>
+        <li><a href="#pairings">Color Pairings</a></li>
+        <li><a href="#type">Typography</a></li>
+        <li><a href="#scale">Type Scale</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <span class="nav-label">In Use</span>
+      <ul class="nav-links">
+        <li><a href="#poster">Event Poster</a></li>
+        <li><a href="#social">Social Templates</a></li>
+        <li><a href="#merch">Merch</a></li>
+        <li><a href="#components">UI Components</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="main-content">
+    <header>
+      <div class="brand-intro">
+        <h1>RUN CLUB<br><span>BRAND</span></h1>
+        <p>Dawn counterpart to the Night Owl Sound. 5km at sunrise, then a DJ set, chess, and speed dating. Every Saturday. Nairobi.</p>
+      </div>
+      <svg class="header-mark" width="160" height="160" viewBox="0 0 100 100" fill="none">
+        <circle cx="50" cy="50" r="34" stroke="#E8632A" stroke-width="4"/>
+        <line x1="16" y1="78" x2="84" y2="22" stroke="#E8632A" stroke-width="3" stroke-linecap="round"/>
+      </svg>
+    </header>
+
+    <!-- FOUNDATIONS -->
+    <section id="voice">
+      <div class="section-header">
+        <div class="accent-dot"></div>
+        <h3>Foundations</h3>
+      </div>
+      <div class="grid">
+        <div class="card-container">
+          <div class="card-header">
+            <span class="card-title">Voice & Personality</span>
+          </div>
+          <iframe src="./preview/voice.html"></iframe>
+        </div>
+        <div class="card-container">
+          <div class="card-header">
+            <span class="card-title">Tagline System</span>
+          </div>
+          <iframe src="./preview/tagline.html"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <section id="copy">
+      <div class="grid">
+        <div class="card-container tall wide">
+          <div class="card-header">
+            <span class="card-title">Copy Samples</span>
+            <span class="card-tag">In Brand Voice</span>
+          </div>
+          <iframe src="./preview/voice-copy.html"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- IDENTITY -->
+    <section id="logo">
+      <div class="section-header">
+        <div class="accent-dot"></div>
+        <h3>Identity</h3>
+      </div>
+      <div class="grid">
+        <div class="card-container">
+          <div class="card-header">
+            <span class="card-title">The Striding Sun Mark</span>
+          </div>
+          <iframe src="./preview/logo-mark.html"></iframe>
+        </div>
+        <div class="card-container" id="logo-lockups">
+          <div class="card-header">
+            <span class="card-title">Logo Lockups</span>
+          </div>
+          <iframe src="./preview/logo-lockups.html"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOKENS -->
+    <section id="colors">
+      <div class="section-header">
+        <div class="accent-dot"></div>
+        <h3>Design Tokens</h3>
+      </div>
+      <div class="grid">
+        <div class="card-container short">
+          <div class="card-header">
+            <span class="card-title">Color Palette</span>
+          </div>
+          <iframe src="./preview/colors-palette.html"></iframe>
+        </div>
+        <div class="card-container short" id="pairings">
+          <div class="card-header">
+            <span class="card-title">Approved Pairings</span>
+          </div>
+          <iframe src="./preview/colors-pairings.html"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <section id="type">
+      <div class="grid">
+        <div class="card-container">
+          <div class="card-header">
+            <span class="card-title">Display — Big Shoulders</span>
+          </div>
+          <iframe src="./preview/type-display.html"></iframe>
+        </div>
+        <div class="card-container" id="scale">
+          <div class="card-header">
+            <span class="card-title">Type Scale</span>
+          </div>
+          <iframe src="./preview/type-scale.html"></iframe>
+        </div>
+        <div class="card-container short">
+          <div class="card-header">
+            <span class="card-title">Mono — Space Mono</span>
+          </div>
+          <iframe src="./preview/type-mono.html"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- IN USE -->
+    <section id="poster">
+      <div class="section-header">
+        <div class="accent-dot"></div>
+        <h3>In Use</h3>
+      </div>
+      <div class="grid">
+        <div class="card-container tall">
+          <div class="card-header">
+            <span class="card-title">Event Poster</span>
+            <span class="card-tag">Dark Mode</span>
+          </div>
+          <iframe src="./preview/poster-event.html"></iframe>
+        </div>
+        <div class="card-container tall" id="social">
+          <div class="card-header">
+            <span class="card-title">Finish Line Post</span>
+            <span class="card-tag">Social</span>
+          </div>
+          <iframe src="./preview/social-finish.html"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <section id="merch">
+      <div class="grid">
+        <div class="card-container">
+          <div class="card-header">
+            <span class="card-title">Merch — Vest & Tee</span>
+          </div>
+          <iframe src="./preview/merch.html"></iframe>
+        </div>
+        <div class="card-container" id="components">
+          <div class="card-header">
+            <span class="card-title">UI Components</span>
+          </div>
+          <iframe src="./preview/components-buttons.html"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-tagline">Run. Dance. Chess.</div>
+      <div>© 2026 MOZAKA RUN CLUB / DBAKKA STUDIOS</div>
+    </footer>
+  </main>
+</div>
+</body>
+</html>

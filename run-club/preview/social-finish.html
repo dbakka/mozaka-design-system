@@ -1,0 +1,59 @@
+<!DOCTYPE html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../brand/css-variables.css">
+<style>
+  html,body{margin:0;height:100%;overflow:hidden;}
+  .post{
+    width:100%;height:100%;
+    background:#E8632A;
+    display:flex;flex-direction:column;
+    justify-content:space-between;
+    padding:24px;
+    box-sizing:border-box;
+    position:relative;
+    overflow:hidden;
+  }
+  .noise{
+    position:absolute;inset:0;
+    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events:none;
+    opacity:.4;
+  }
+  .top{display:flex;justify-content:space-between;align-items:center;position:relative;}
+  .tag{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:rgba(14,11,31,.6);}
+  .count-block{text-align:center;position:relative;flex:1;margin:20px 0;}
+  .count{font-family:var(--font-mono);font-size:72px;font-weight:700;color:#0E0B1F;line-height:.9;}
+  .count-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:rgba(14,11,31,.6);margin-top:6px;}
+  .bottom{position:relative;}
+  .caption{font-size:13px;line-height:1.55;color:#0E0B1F;}
+  .caption strong{font-weight:600;}
+  .hashtag{font-size:11px;color:rgba(14,11,31,.45);margin-top:8px;}
+  .mark-corner{position:absolute;top:0;right:0;opacity:.15;}
+</style></head>
+<body>
+<div class="post">
+  <div class="noise"></div>
+  <svg class="mark-corner" width="100" height="100" viewBox="0 0 100 100" fill="none">
+    <circle cx="50" cy="50" r="34" stroke="#0E0B1F" stroke-width="4"/>
+    <line x1="16" y1="78" x2="84" y2="22" stroke="#0E0B1F" stroke-width="3" stroke-linecap="round"/>
+  </svg>
+
+  <div class="top">
+    <div class="tag">Mozaka Run Club · 022</div>
+    <div class="tag">Sat 17 May · 7am</div>
+  </div>
+
+  <div class="count-block">
+    <div class="count">039</div>
+    <div class="count-label">runners finished</div>
+  </div>
+
+  <div class="bottom">
+    <div class="caption">
+      39 people who were warm in bed at 6:45.<br>
+      We ran 5km. Then we danced for an hour.<br>
+      Someone won at chess. <strong>Someone met their person.</strong>
+    </div>
+    <div class="hashtag">#MozakaRunClub &nbsp;#Nairobi &nbsp;#RunDanceChess</div>
+  </div>
+</div>
+</body></html>
