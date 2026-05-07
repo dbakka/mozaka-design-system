@@ -1,0 +1,79 @@
+{
+  "palette": {
+    "dawu": {
+      "hex": "#E8632A",
+      "rgb": "rgb(232, 99, 42)",
+      "usage": "Primary brand color. Dawn ember — the color of Nairobi's horizon at 5:50am. Use on CTAs, bold headlines, and wherever energy needs anchoring."
+    },
+    "usiku": {
+      "hex": "#0E0B1F",
+      "rgb": "rgb(14, 11, 31)",
+      "usage": "Primary dark background. Pre-dawn indigo-black — the sky before the run begins. Default background for event posters, dark-mode surfaces, and night photography overlays."
+    },
+    "haraka": {
+      "hex": "#FF3B5C",
+      "rgb": "rgb(255, 59, 92)",
+      "usage": "Secondary energetic coral-red. The pulse — heartbeats, dance floor heat, the moment you cross the finish line. Use for notifications, urgency states, and high-energy moments."
+    },
+    "jua": {
+      "hex": "#FFB800",
+      "rgb": "rgb(255, 184, 0)",
+      "usage": "Warm solar gold. The sun fully cresting the horizon at 7:15am. Use for highlights, celebration moments, star elements, and warmth accents layered over photography."
+    },
+    "pumzi": {
+      "hex": "#F5ECD7",
+      "rgb": "rgb(245, 236, 215)",
+      "usage": "Warm cream — primary text-on-dark and light background base. Named for breath: the first deep one at the starting line. Never use pure white; use Pumzi instead."
+    },
+    "ngozi": {
+      "hex": "#C8A882",
+      "rgb": "rgb(200, 168, 130)",
+      "usage": "Warm sandy brown — Nairobi laterite earth, skin-adjacent warmth. Use as muted text on dark backgrounds, dividers, secondary surface details, and mid-tone photography overlays."
+    },
+    "baridi": {
+      "hex": "#1E2D3E",
+      "rgb": "rgb(30, 45, 62)",
+      "usage": "Deep cool blue-grey. The morning air before the sun's warmth hits. Use as secondary dark surface, card backgrounds on dark-mode screens, and as a dark background alternative to Usiku."
+    },
+    "volt": {
+      "hex": "#D4F000",
+      "rgb": "rgb(212, 240, 0)",
+      "usage": "Electric chartreuse. The accent that cuts through everything — photography, dark backgrounds, light backgrounds. Use sparingly and with intention: wristbands, one word in a headline, key CTAs, the dot after MOZAKA."
+    }
+  },
+  "roles": {
+    "primary": "dawu",
+    "secondary": "haraka",
+    "accent": "volt",
+    "background": "usiku",
+    "surface": "baridi",
+    "text_primary": "pumzi",
+    "text_muted": "ngozi"
+  },
+  "pairings": {
+    "dawn_poster": {
+      "background": "pumzi",
+      "headline": "usiku",
+      "accent": "dawu",
+      "note": "Morning / bright-mode combination. Warm cream ground with dark headline and ember CTA."
+    },
+    "night_poster": {
+      "background": "usiku",
+      "headline": "pumzi",
+      "accent": "volt",
+      "note": "Event poster default. Deep night sky, cream text, volt for a single high-energy element."
+    },
+    "energy_burst": {
+      "background": "dawu",
+      "headline": "pumzi",
+      "accent": "volt",
+      "note": "Use for finish-line posts and high-celebration moments. Hot, warm, proud."
+    },
+    "data_card": {
+      "background": "baridi",
+      "headline": "pumzi",
+      "accent": "jua",
+      "note": "Run stats, pace cards, leaderboard. Cool dark surface reads technical."
+    }
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "fonts": {
+    "display": {
+      "family": "Big Shoulders Display",
+      "source": "Google Fonts",
+      "url": "https://fonts.google.com/specimen/Big+Shoulders+Display",
+      "weights": [400, 600, 700, 800, 900],
+      "usage": "Headlines, hero text, event names, pull quotes, poster copy. The personality font. Big Shoulders Display is ultra-condensed and upright with the same commanding stature as Monument Extended — making it feel like the Run Club shares a design bloodline with the main Mozaka brand. Where Monument is industrial-night, Big Shoulders is athletic-dawn: the same authority, more kinetic."
+    },
+    "body": {
+      "family": "DM Sans",
+      "source": "Google Fonts",
+      "url": "https://fonts.google.com/specimen/DM+Sans",
+      "weights": [300, 400, 500, 700],
+      "usage": "Body copy, captions, UI labels, WhatsApp blasts, onboarding copy, social captions. Warm, geometric, and highly legible at small sizes on a phone screen. The voice Mozaka uses when talking to you, not at you."
+    },
+    "mono": {
+      "family": "Space Mono",
+      "source": "Google Fonts",
+      "url": "https://fonts.google.com/specimen/Space+Mono",
+      "weights": [400, 700],
+      "usage": "Times, paces, distances, run stats, split data, event dates. Makes '5:32/km' and '7:00AM' feel like a dashboard readout — technical, earned, cool. Never use for prose."
+    }
+  },
+  "scale": {
+    "hero": "96px / 6rem",
+    "h1": "64px / 4rem",
+    "h2": "48px / 3rem",
+    "h3": "32px / 2rem",
+    "body": "18px / 1.125rem",
+    "caption": "14px / 0.875rem",
+    "label": "12px / 0.75rem"
+  },
+  "line_heights": {
+    "hero": "0.95",
+    "h1": "1.0",
+    "h2": "1.05",
+    "h3": "1.15",
+    "body": "1.6",
+    "caption": "1.5",
+    "mono": "1.5"
+  },
+  "letter_spacing": {
+    "hero_display": "-0.02em",
+    "h1_h2": "-0.01em",
+    "body": "0em",
+    "label_uppercase": "0.08em",
+    "mono": "0em"
+  },
+  "rules": [
+    "Syne 800 is the shout — one line, hero use only. Never wrap it, never set it smaller than 48px, never use it for body copy.",
+    "All Syne display text should be uppercase or title case. Sentence case kills the geometry. The letterforms are built to stand tall.",
+    "DM Sans 300 is ambient — long descriptions, story copy, the runners' bible. 400 is default UI. 500 is inline emphasis. 700 is buttons and labels only.",
+    "Space Mono appears only when the content is a number or time-based fact: 5km, 5:00/km, 7:00AM, 12 runners, Sat 18 Jan. If it's a sentence, it's not mono.",
+    "Minimum body font size: 16px mobile, 18px desktop. Mozaka copy is read on phones after a run. Squinting is a failure state.",
+    "Never mix Syne and Space Mono in the same text block. They serve different registers — voice vs data — and should not compete.",
+    "On dark backgrounds (Usiku, Baridi), Pumzi text only. Never grey text on dark — Ngozi is for dividers and secondary UI elements, not running text.",
+    "Syne headlines on photography: always add a subtle dark scrim (20–40% opacity) under the text unless the image is already dark enough. Legibility is a brand decision."
+  ]
+}
