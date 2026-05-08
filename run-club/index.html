@@ -6,481 +6,1227 @@
   <title>MOZAKA RUN CLUB — Brand System</title>
   <link rel="stylesheet" href="./brand/css-variables.css">
   <style>
-    :root {
-      --sidebar-width: 280px;
-    }
-
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      background: var(--usiku);
-      color: var(--pumzi);
+      background: #0E0B1F;
+      color: #F5ECD7;
       font-family: var(--font-body);
       overflow-x: hidden;
     }
 
-    .app-container {
-      display: flex;
-      min-height: 100vh;
-    }
-
-    /* Sidebar */
+    /* ── Sidebar ─────────────────────────────────── */
     .sidebar {
-      width: var(--sidebar-width);
+      width: 260px;
       height: 100vh;
-      position: sticky;
-      top: 0;
-      background: var(--usiku-raise);
-      border-right: 1px solid var(--color-divider);
-      padding: var(--s-6) var(--s-5);
+      position: fixed;
+      top: 0; left: 0;
+      background: #0A0817;
+      border-right: 1px solid rgba(200,168,130,.12);
       display: flex;
       flex-direction: column;
-      gap: var(--s-7);
-      z-index: 100;
+      padding: 32px 24px;
+      gap: 32px;
+      z-index: 200;
       overflow-y: auto;
     }
 
-    .sidebar-brand {
+    .sidebar-mark {
       display: flex;
-      flex-direction: column;
-      gap: var(--s-2);
+      align-items: center;
+      gap: 12px;
     }
 
-    .sidebar-back {
-      font-size: 11px;
-      font-weight: 600;
+    .sidebar-title {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 900;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--ngozi);
+      letter-spacing: -0.02em;
+      line-height: 1;
+      color: #F5ECD7;
+    }
+    .sidebar-title span { color: #E8632A; display: block; }
+
+    .nav-section { display: flex; flex-direction: column; gap: 6px; }
+    .nav-section-label {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #E8632A;
+      margin-bottom: 4px;
+    }
+    .nav-section a {
+      font-size: 13px;
+      color: #C8A882;
+      text-decoration: none;
+      border: none;
+      padding: 4px 0;
+      display: block;
+      transition: color 120ms;
+    }
+    .nav-section a:hover { color: #F5ECD7; }
+
+    .sidebar-back {
+      margin-top: auto;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #C8A882;
       text-decoration: none;
       border: none;
       display: flex;
       align-items: center;
       gap: 6px;
-      transition: color 120ms;
     }
-    .sidebar-back:hover { color: var(--pumzi); }
-    .sidebar-back::before { content: "←"; }
+    .sidebar-back:hover { color: #F5ECD7; }
 
-    .sidebar-title {
-      font-family: var(--font-display);
-      font-size: 22px;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: -0.02em;
-      line-height: 0.95;
-      color: var(--pumzi);
-    }
-
-    .sidebar-sub {
-      font-size: 11px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--dawu);
-    }
-
-    .nav-group {
-      display: flex;
-      flex-direction: column;
-      gap: var(--s-3);
-    }
-
-    .nav-label {
-      font-size: 11px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--dawu);
-      opacity: 0.9;
-    }
-
-    .nav-links {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    .nav-links a {
-      font-size: 13px;
-      color: var(--ngozi);
-      text-decoration: none;
-      border: none;
-      display: block;
-      padding: 4px 0;
-      transition: color 120ms;
-    }
-    .nav-links a:hover { color: var(--pumzi); }
-
-    /* Main */
-    .main-content {
-      flex: 1;
-      padding: var(--s-8);
-      max-width: 1400px;
-    }
-
-    header {
-      margin-bottom: var(--s-9);
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-    }
-
-    .brand-intro h1 {
-      font-family: var(--font-display);
-      font-size: clamp(48px, 6vw, 80px);
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: -0.02em;
-      line-height: 0.95;
-      color: var(--pumzi);
-      margin-bottom: var(--s-4);
-    }
-
-    .brand-intro h1 span {
-      color: var(--dawu);
-    }
-
-    .brand-intro p {
-      font-size: 16px;
-      color: var(--ngozi);
-      max-width: 52ch;
-    }
-
-    .header-mark {
-      opacity: 0.12;
-      flex-shrink: 0;
+    /* ── Main ────────────────────────────────────── */
+    .main {
+      margin-left: 260px;
     }
 
     section {
-      margin-bottom: var(--s-10);
-      scroll-margin-top: var(--s-8);
+      scroll-margin-top: 0;
     }
 
-    .section-header {
-      margin-bottom: var(--s-6);
-      padding-bottom: var(--s-3);
-      border-bottom: 2px solid var(--color-divider);
-      display: flex;
-      align-items: center;
-      gap: var(--s-4);
-    }
-
-    .section-header h3 {
-      font-family: var(--font-display);
-      font-size: 13px;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--ngozi);
-    }
-
-    .section-header .accent-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--dawu);
-      flex-shrink: 0;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-      gap: var(--s-6);
-    }
-
-    .grid-3 {
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    }
-
-    .card-container {
-      background: var(--usiku-card);
-      border: 1px solid var(--color-divider);
-      height: 480px;
-      display: flex;
-      flex-direction: column;
-      transition: border-color 180ms;
-    }
-
-    .card-container:hover {
-      border-color: var(--dawu);
-    }
-
-    .card-container.tall { height: 600px; }
-    .card-container.short { height: 320px; }
-    .card-container.wide { grid-column: span 2; }
-
-    .card-header {
-      padding: var(--s-3) var(--s-4);
-      border-bottom: 1px solid var(--color-divider);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-shrink: 0;
-    }
-
-    .card-title {
-      font-family: var(--font-display);
+    /* eyebrow */
+    .eyebrow {
       font-size: 11px;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--ngozi);
-    }
-
-    .card-tag {
-      font-size: 10px;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--usiku);
-      background: var(--dawu);
-      padding: 2px 8px;
+      letter-spacing: 0.14em;
+      color: #E8632A;
     }
 
-    .card-container iframe {
-      flex: 1;
-      width: 100%;
-      border: none;
-      background: transparent;
+    /* ── 1. HERO ─────────────────────────────────── */
+    #hero {
+      background: #0E0B1F;
+      min-height: 100vh;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      padding: 40px 56px;
+      position: relative;
+      overflow: hidden;
     }
 
-    footer {
-      margin-top: var(--s-10);
-      padding-top: var(--s-6);
-      border-top: 1px solid var(--color-divider);
+    .hero-topbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      color: var(--ngozi);
-      font-size: 12px;
     }
 
-    .footer-tagline {
+    .hero-session {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: #C8A882;
+    }
+
+    .hero-center {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 64px;
+      padding: 48px 0;
+    }
+
+    .hero-mark {
+      flex-shrink: 0;
+      opacity: 1;
+    }
+
+    .hero-headline {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: clamp(72px, 10vw, 130px);
+      line-height: 0.88;
+      letter-spacing: -0.03em;
+      text-transform: uppercase;
+      color: #F5ECD7;
+    }
+    .hero-headline .w1 { color: #E8632A; }
+    .hero-headline .w2 { color: #F5ECD7; }
+    .hero-headline .w3 { color: #D4F000; }
+
+    .hero-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      border-top: 1px solid rgba(200,168,130,.15);
+      padding-top: 24px;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 48px;
+    }
+
+    .hero-stat { display: flex; flex-direction: column; gap: 3px; }
+    .hero-stat .val {
+      font-family: var(--font-mono);
+      font-size: 22px;
+      font-weight: 700;
+      color: #FFB800;
+    }
+    .hero-stat .key {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #C8A882;
+    }
+
+    .hero-cta {
       font-family: var(--font-display);
       font-size: 14px;
       font-weight: 900;
       text-transform: uppercase;
       letter-spacing: -0.01em;
-      color: var(--pumzi);
+      background: #E8632A;
+      color: #F5ECD7;
+      padding: 12px 24px;
+      text-decoration: none;
+      border: none;
+      display: inline-block;
     }
 
+    /* ── 2. MARK ─────────────────────────────────── */
+    #mark {
+      background: #1E2D3E;
+      padding: 80px 56px;
+    }
+
+    .mark-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      margin-top: 40px;
+    }
+
+    .mark-left {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .mark-variations {
+      display: flex;
+      gap: 24px;
+      align-items: flex-end;
+    }
+
+    .mark-variation {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .mark-variation-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #C8A882;
+    }
+
+    .mark-var-dark  { background: #0E0B1F; padding: 20px; }
+    .mark-var-light { background: #F5ECD7; padding: 20px; }
+    .mark-var-burst { background: #E8632A; padding: 20px; }
+
+    .mark-right {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 24px;
+    }
+
+    .mark-name {
+      font-family: var(--font-display);
+      font-size: 48px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      line-height: 0.9;
+      color: #F5ECD7;
+    }
+
+    .mark-description {
+      font-size: 15px;
+      color: #C8A882;
+      line-height: 1.65;
+      max-width: 42ch;
+    }
+
+    .mark-rules {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .mark-rule {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      font-size: 13px;
+      color: #C8A882;
+    }
+    .mark-rule::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #E8632A;
+      flex-shrink: 0;
+      margin-top: 6px;
+    }
+
+    /* ── 3. COLORS ───────────────────────────────── */
+    #colors {
+      background: #F5ECD7;
+      padding: 80px 56px;
+    }
+
+    #colors .eyebrow { color: #0E0B1F; opacity: .5; }
+
+    .colors-heading {
+      font-family: var(--font-display);
+      font-size: 56px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      line-height: 0.9;
+      color: #0E0B1F;
+      margin: 16px 0 40px;
+    }
+
+    .color-strip {
+      display: flex;
+      height: 160px;
+      border-radius: 2px;
+      overflow: hidden;
+      margin-bottom: 32px;
+    }
+
+    .color-strip-item {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 12px 10px;
+      position: relative;
+      transition: flex .3s;
+    }
+    .color-strip-item:hover { flex: 2; }
+
+    .color-strip-name {
+      font-family: var(--font-display);
+      font-size: 11px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      line-height: 1;
+    }
+    .color-strip-hex {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      margin-top: 3px;
+      opacity: .7;
+    }
+
+    .pairings-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .pairing-block {
+      padding: 28px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 180px;
+    }
+
+    .pairing-role {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      opacity: .5;
+    }
+    .pairing-sample {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      line-height: .9;
+    }
+
+    /* ── 4. TYPOGRAPHY ───────────────────────────── */
+    #typography {
+      background: #0E0B1F;
+      padding: 80px 56px;
+    }
+
+    .type-hero-specimen {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: clamp(56px, 8vw, 110px);
+      text-transform: uppercase;
+      letter-spacing: -0.025em;
+      line-height: 0.9;
+      color: #F5ECD7;
+      margin: 40px 0;
+      border-bottom: 2px solid rgba(200,168,130,.15);
+      padding-bottom: 40px;
+    }
+    .type-hero-specimen .orange { color: #E8632A; }
+
+    .type-trio {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-top: 40px;
+    }
+
+    .type-block { display: flex; flex-direction: column; gap: 12px; }
+    .type-block-label {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #E8632A;
+      border-top: 2px solid rgba(232,99,42,.3);
+      padding-top: 12px;
+    }
+    .type-block-name {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      color: #F5ECD7;
+    }
+    .type-block-specimen { font-size: 14px; color: #C8A882; line-height: 1.6; }
+    .type-block-mono { font-family: var(--font-mono); font-size: 18px; color: #FFB800; line-height: 1.5; }
+    .type-block-meta { font-size: 11px; color: rgba(200,168,130,.5); font-family: var(--font-mono); }
+
+    /* ── 5. VOICE ────────────────────────────────── */
+    #voice {
+      background: #E8632A;
+      padding: 80px 56px;
+      color: #0E0B1F;
+    }
+
+    #voice .eyebrow { color: #0E0B1F; opacity: .5; }
+
+    .voice-heading {
+      font-family: var(--font-display);
+      font-size: clamp(48px, 7vw, 96px);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.025em;
+      line-height: 0.9;
+      color: #0E0B1F;
+      margin: 16px 0 48px;
+    }
+    .voice-heading span { color: #F5ECD7; }
+
+    .voice-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+    }
+
+    .voice-copy-block {
+      background: rgba(14,11,31,.08);
+      padding: 28px;
+    }
+
+    .voice-copy-label {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: rgba(14,11,31,.5);
+      margin-bottom: 14px;
+    }
+
+    .voice-copy-text {
+      font-size: 15px;
+      line-height: 1.65;
+      color: #0E0B1F;
+    }
+    .voice-copy-text p { margin-bottom: 10px; }
+
+    .voice-traits {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .trait {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(14,11,31,.12);
+    }
+    .trait:first-child { border-top: 1px solid rgba(14,11,31,.12); }
+
+    .trait-name {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      color: #0E0B1F;
+      min-width: 120px;
+      flex-shrink: 0;
+    }
+    .trait-desc { font-size: 13px; color: rgba(14,11,31,.65); line-height: 1.5; padding-top: 2px; }
+
+    /* ── 6. POSTER ───────────────────────────────── */
+    #poster {
+      background: #0E0B1F;
+      padding: 80px 56px;
+    }
+
+    .poster-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-top: 40px;
+    }
+
+    .poster-card {
+      background: #0E0B1F;
+      border: 1px solid rgba(200,168,130,.12);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      min-height: 560px;
+      padding: 36px 32px;
+      justify-content: space-between;
+    }
+
+    .poster-bg-mark {
+      position: absolute;
+      right: -40px;
+      bottom: -40px;
+      opacity: .05;
+      pointer-events: none;
+    }
+
+    .poster-eyebrow {
+      font-family: var(--font-display);
+      font-size: 10px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #E8632A;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .poster-headline {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: clamp(52px, 6vw, 80px);
+      line-height: 0.88;
+      letter-spacing: -0.025em;
+      text-transform: uppercase;
+    }
+    .poster-headline .c1 { color: #E8632A; }
+    .poster-headline .c2 { color: #F5ECD7; }
+    .poster-headline .c3 { color: #D4F000; }
+
+    .poster-sub {
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: #C8A882;
+      margin-top: 16px;
+    }
+
+    .poster-divider {
+      height: 1px;
+      background: rgba(200,168,130,.15);
+      margin: 20px 0;
+    }
+
+    .poster-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .poster-info-left { display: flex; flex-direction: column; gap: 4px; }
+    .poster-info-line { font-size: 13px; color: #C8A882; }
+    .poster-info-line strong { color: #F5ECD7; font-weight: 500; }
+
+    .poster-price {
+      font-family: var(--font-mono);
+      font-size: 16px;
+      font-weight: 700;
+      color: #D4F000;
+    }
+
+    /* finish line post */
+    .post-card {
+      background: #E8632A;
+      padding: 36px 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 560px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .post-bg-mark {
+      position: absolute;
+      right: -30px;
+      bottom: -30px;
+      opacity: .08;
+      pointer-events: none;
+    }
+
+    .post-top {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(14,11,31,.55);
+    }
+
+    .post-count {
+      font-family: var(--font-mono);
+      font-size: 88px;
+      font-weight: 700;
+      color: #0E0B1F;
+      line-height: .85;
+      letter-spacing: -0.04em;
+    }
+    .post-count-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: rgba(14,11,31,.5);
+      margin-top: 6px;
+    }
+
+    .post-caption { font-size: 14px; line-height: 1.6; color: #0E0B1F; }
+    .post-tags { font-size: 11px; color: rgba(14,11,31,.4); margin-top: 8px; }
+
+    /* ── 7. MERCH ────────────────────────────────── */
+    #merch {
+      background: #1E2D3E;
+      padding: 80px 56px;
+    }
+
+    .merch-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .merch-item {
+      background: #15243380;
+      border: 1px solid rgba(200,168,130,.1);
+      padding: 32px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .merch-visual {
+      width: 100%;
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .merch-name {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      color: #F5ECD7;
+      text-align: center;
+    }
+
+    .merch-spec {
+      font-size: 12px;
+      color: #C8A882;
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    /* vest shape */
+    .vest {
+      width: 90px;
+      height: 130px;
+      position: relative;
+    }
+    .vest-body {
+      position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+      width: 76px; height: 100px;
+      background: #0E0B1F;
+      clip-path: polygon(14% 0%,86% 0%,100% 100%,0% 100%);
+    }
+    .vest-l { position: absolute; top: 0; left: 0; width: 30px; height: 44px; background: #0E0B1F; clip-path: polygon(0 0,100% 25%,80% 100%,0 100%); }
+    .vest-r { position: absolute; top: 0; right: 0; width: 30px; height: 44px; background: #0E0B1F; clip-path: polygon(100% 0,100% 100%,20% 100%,0 25%); }
+    .vest-icon { position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%); }
+
+    /* tee shape */
+    .tee {
+      width: 100px; height: 120px;
+      background: #F5ECD7;
+      clip-path: polygon(16% 0%,30% 14%,50% 8%,70% 14%,84% 0%,100% 16%,82% 24%,82% 100%,18% 100%,18% 24%,0 16%);
+      display: flex; align-items: center; justify-content: center; padding-top: 14px;
+    }
+
+    /* socks */
+    .sock {
+      width: 32px; height: 64px;
+      background: #0E0B1F;
+      border-radius: 5px 5px 14px 14px;
+      position: relative; overflow: hidden;
+      display: flex; flex-direction: column; align-items: center;
+    }
+    .sock-stripe { width: 100%; height: 7px; background: #E8632A; position: absolute; top: 9px; }
+    .sock-mark { position: absolute; bottom: 10px; }
+
+    /* ── Footer ──────────────────────────────────── */
+    footer {
+      background: #0A0817;
+      padding: 48px 56px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid rgba(200,168,130,.1);
+    }
+
+    .footer-tagline {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      color: #F5ECD7;
+    }
+    .footer-meta { font-size: 12px; color: #C8A882; }
+
+    /* ── Responsive ──────────────────────────────── */
     @media (max-width: 1024px) {
       .sidebar { display: none; }
-      .main-content { padding: var(--s-5); }
-      .grid { grid-template-columns: 1fr; }
-      .card-container.wide { grid-column: span 1; }
+      .main { margin-left: 0; }
+      #hero { padding: 32px 24px; }
+      .hero-center { flex-direction: column; gap: 32px; }
+      .mark-grid, .type-trio, .poster-grid, .merch-grid, .voice-grid, .pairings-grid { grid-template-columns: 1fr; }
+      #colors, #typography, #voice, #mark, #poster, #merch { padding: 56px 24px; }
     }
   </style>
 </head>
 <body>
-<div class="app-container">
 
-  <nav class="sidebar">
-    <div class="sidebar-brand">
-      <a class="sidebar-back" href="../index.html">Mozaka Main</a>
-      <div class="sidebar-title">Run<br>Club</div>
-      <div class="sidebar-sub">Brand System</div>
+<!-- SIDEBAR -->
+<nav class="sidebar">
+  <div class="sidebar-mark">
+    <svg width="32" height="36" viewBox="0 0 70 80" fill="none">
+      <circle cx="38" cy="11" r="7" stroke="#E8632A" stroke-width="3.5"/>
+      <line x1="36" y1="18" x2="32" y2="38" stroke="#E8632A" stroke-width="3.5" stroke-linecap="round"/>
+      <line x1="35" y1="25" x2="50" y2="18" stroke="#E8632A" stroke-width="3" stroke-linecap="round"/>
+      <line x1="35" y1="25" x2="22" y2="33" stroke="#E8632A" stroke-width="3" stroke-linecap="round"/>
+      <line x1="32" y1="38" x2="50" y2="60" stroke="#E8632A" stroke-width="3.5" stroke-linecap="round"/>
+      <line x1="50" y1="60" x2="60" y2="56" stroke="#E8632A" stroke-width="3" stroke-linecap="round"/>
+      <line x1="32" y1="38" x2="16" y2="48" stroke="#E8632A" stroke-width="3.5" stroke-linecap="round"/>
+      <line x1="16" y1="48" x2="12" y2="36" stroke="#E8632A" stroke-width="3" stroke-linecap="round"/>
+    </svg>
+    <div class="sidebar-title">Mozaka<span>Run Club</span></div>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-section-label">Identity</div>
+    <a href="#mark">The Mark</a>
+    <a href="#colors">Colors</a>
+    <a href="#typography">Typography</a>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-section-label">Brand</div>
+    <a href="#voice">Voice & Copy</a>
+    <a href="#poster">Event Poster</a>
+    <a href="#merch">Merch</a>
+  </div>
+
+  <a class="sidebar-back" href="../index.html">← Mozaka Main Brand</a>
+</nav>
+
+<!-- MAIN CONTENT -->
+<main class="main">
+
+  <!-- 1. HERO -->
+  <section id="hero">
+    <div class="hero-topbar">
+      <span class="eyebrow">Mozaka Run Club · Brand System</span>
+      <span class="hero-session" style="font-family:var(--font-mono);font-size:12px;color:#C8A882;">EST. NAIROBI · 2026</span>
     </div>
 
-    <div class="nav-group">
-      <span class="nav-label">Foundations</span>
-      <ul class="nav-links">
-        <li><a href="#voice">Voice & Personality</a></li>
-        <li><a href="#copy">Copy Samples</a></li>
-        <li><a href="#tagline">Tagline System</a></li>
-      </ul>
-    </div>
-
-    <div class="nav-group">
-      <span class="nav-label">Identity</span>
-      <ul class="nav-links">
-        <li><a href="#logo">The Striding Sun Mark</a></li>
-        <li><a href="#logo-lockups">Logo Lockups</a></li>
-      </ul>
-    </div>
-
-    <div class="nav-group">
-      <span class="nav-label">Tokens</span>
-      <ul class="nav-links">
-        <li><a href="#colors">Color Palette</a></li>
-        <li><a href="#pairings">Color Pairings</a></li>
-        <li><a href="#type">Typography</a></li>
-        <li><a href="#scale">Type Scale</a></li>
-      </ul>
-    </div>
-
-    <div class="nav-group">
-      <span class="nav-label">In Use</span>
-      <ul class="nav-links">
-        <li><a href="#poster">Event Poster</a></li>
-        <li><a href="#social">Social Templates</a></li>
-        <li><a href="#merch">Merch</a></li>
-        <li><a href="#components">UI Components</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <main class="main-content">
-    <header>
-      <div class="brand-intro">
-        <h1>RUN CLUB<br><span>BRAND</span></h1>
-        <p>Dawn counterpart to the Night Owl Sound. 5km at sunrise, then a DJ set, chess, and speed dating. Every Saturday. Nairobi.</p>
-      </div>
-      <svg class="header-mark" width="160" height="160" viewBox="0 0 100 100" fill="none">
-        <circle cx="50" cy="50" r="34" stroke="#E8632A" stroke-width="4"/>
-        <line x1="16" y1="78" x2="84" y2="22" stroke="#E8632A" stroke-width="3" stroke-linecap="round"/>
+    <div class="hero-center">
+      <!-- Large running figure mark -->
+      <svg class="hero-mark" width="180" height="205" viewBox="0 0 70 80" fill="none">
+        <circle cx="38" cy="11" r="7" stroke="#E8632A" stroke-width="3"/>
+        <line x1="36" y1="18" x2="32" y2="38" stroke="#E8632A" stroke-width="3" stroke-linecap="round"/>
+        <line x1="35" y1="25" x2="50" y2="18" stroke="#E8632A" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="35" y1="25" x2="22" y2="33" stroke="#E8632A" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="32" y1="38" x2="50" y2="60" stroke="#E8632A" stroke-width="3" stroke-linecap="round"/>
+        <line x1="50" y1="60" x2="60" y2="56" stroke="#E8632A" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="32" y1="38" x2="16" y2="48" stroke="#E8632A" stroke-width="3" stroke-linecap="round"/>
+        <line x1="16" y1="48" x2="12" y2="36" stroke="#E8632A" stroke-width="2.5" stroke-linecap="round"/>
       </svg>
-    </header>
 
-    <!-- FOUNDATIONS -->
-    <section id="voice">
-      <div class="section-header">
-        <div class="accent-dot"></div>
-        <h3>Foundations</h3>
+      <div class="hero-headline">
+        <div class="w1">Run.</div>
+        <div class="w2">Dance.</div>
+        <div class="w3">Chess.</div>
       </div>
-      <div class="grid">
-        <div class="card-container">
-          <div class="card-header">
-            <span class="card-title">Voice & Personality</span>
-          </div>
-          <iframe src="./preview/voice.html"></iframe>
-        </div>
-        <div class="card-container">
-          <div class="card-header">
-            <span class="card-title">Tagline System</span>
-          </div>
-          <iframe src="./preview/tagline.html"></iframe>
-        </div>
-      </div>
-    </section>
+    </div>
 
-    <section id="copy">
-      <div class="grid">
-        <div class="card-container tall wide">
-          <div class="card-header">
-            <span class="card-title">Copy Samples</span>
-            <span class="card-tag">In Brand Voice</span>
-          </div>
-          <iframe src="./preview/voice-copy.html"></iframe>
+    <div class="hero-bottom">
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="val">5KM</div>
+          <div class="key">Distance</div>
+        </div>
+        <div class="hero-stat">
+          <div class="val">07:00</div>
+          <div class="key">Start time</div>
+        </div>
+        <div class="hero-stat">
+          <div class="val">SAT</div>
+          <div class="key">Every week</div>
+        </div>
+        <div class="hero-stat">
+          <div class="val">NBI</div>
+          <div class="key">Location</div>
         </div>
       </div>
-    </section>
+      <a class="hero-cta" href="#poster">See the poster →</a>
+    </div>
+  </section>
 
-    <!-- IDENTITY -->
-    <section id="logo">
-      <div class="section-header">
-        <div class="accent-dot"></div>
-        <h3>Identity</h3>
-      </div>
-      <div class="grid">
-        <div class="card-container">
-          <div class="card-header">
-            <span class="card-title">The Striding Sun Mark</span>
+  <!-- 2. THE MARK -->
+  <section id="mark">
+    <span class="eyebrow">Identity</span>
+    <div class="mark-grid">
+      <div class="mark-left">
+        <div class="mark-variations">
+          <div class="mark-variation">
+            <div class="mark-var-dark">
+              <svg width="72" height="82" viewBox="0 0 70 80" fill="none">
+                <circle cx="38" cy="11" r="7" stroke="#E8632A" stroke-width="3"/>
+                <line x1="36" y1="18" x2="32" y2="38" stroke="#E8632A" stroke-width="3" stroke-linecap="round"/>
+                <line x1="35" y1="25" x2="50" y2="18" stroke="#E8632A" stroke-width="2.5" stroke-linecap="round"/>
+                <line x1="35" y1="25" x2="22" y2="33" stroke="#E8632A" stroke-width="2.5" stroke-linecap="round"/>
+                <line x1="32" y1="38" x2="50" y2="60" stroke="#E8632A" stroke-width="3" stroke-linecap="round"/>
+                <line x1="50" y1="60" x2="60" y2="56" stroke="#E8632A" stroke-width="2.5" stroke-linecap="round"/>
+                <line x1="32" y1="38" x2="16" y2="48" stroke="#E8632A" stroke-width="3" stroke-linecap="round"/>
+                <line x1="16" y1="48" x2="12" y2="36" stroke="#E8632A" stroke-width="2.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="mark-variation-label">Dark bg</div>
           </div>
-          <iframe src="./preview/logo-mark.html"></iframe>
-        </div>
-        <div class="card-container" id="logo-lockups">
-          <div class="card-header">
-            <span class="card-title">Logo Lockups</span>
+          <div class="mark-variation">
+            <div class="mark-var-dark">
+              <svg width="72" height="82" viewBox="0 0 70 80" fill="none">
+                <circle cx="38" cy="11" r="7" stroke="#D4F000" stroke-width="3"/>
+                <line x1="36" y1="18" x2="32" y2="38" stroke="#D4F000" stroke-width="3" stroke-linecap="round"/>
+                <line x1="35" y1="25" x2="50" y2="18" stroke="#D4F000" stroke-width="2.5" stroke-linecap="round"/>
+                <line x1="35" y1="25" x2="22" y2="33" stroke="#D4F000" stroke-width="2.5" stroke-linecap="round"/>
+                <line x1="32" y1="38" x2="50" y2="60" stroke="#D4F000" stroke-width="3" stroke-linecap="round"/>
+                <line x1="50" y1="60" x2="60" y2="56" stroke="#D4F000" stroke-width="2.5" stroke-linecap="round"/>
+                <line x1="32" y1="38" x2="16" y2="48" stroke="#D4F000" stroke-width="3" stroke-linecap="round"/>
+                <line x1="16" y1="48" x2="12" y2="36" stroke="#D4F000" stroke-width="2.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="mark-variation-label">Volt accent</div>
           </div>
-          <iframe src="./preview/logo-lockups.html"></iframe>
+          <div class="mark-variation">
+            <div class="mark-var-light">
+              <svg width="72" height="82" viewBox="0 0 70 80" fill="none">
+                <circle cx="38" cy="11" r="7" stroke="#0E0B1F" stroke-width="3"/>
+                <line x1="36" y1="18" x2="32" y2="38" stroke="#E8632A" stroke-width="3" stroke-linecap="round"/>
+                <line x1="35" y1="25" x2="50" y2="18" stroke="#0E0B1F" stroke-width="2.5" stroke-linecap="round"/>
+                <line x1="35" y1="25" x2="22" y2="33" stroke="#0E0B1F" stroke-width="2.5" stroke-linecap="round"/>
+                <line x1="32" y1="38" x2="50" y2="60" stroke="#0E0B1F" stroke-width="3" stroke-linecap="round"/>
+                <line x1="50" y1="60" x2="60" y2="56" stroke="#0E0B1F" stroke-width="2.5" stroke-linecap="round"/>
+                <line x1="32" y1="38" x2="16" y2="48" stroke="#0E0B1F" stroke-width="3" stroke-linecap="round"/>
+                <line x1="16" y1="48" x2="12" y2="36" stroke="#0E0B1F" stroke-width="2.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="mark-variation-label" style="color:#F5ECD7;">Light bg</div>
+          </div>
+          <div class="mark-variation">
+            <div class="mark-var-burst">
+              <svg width="72" height="82" viewBox="0 0 70 80" fill="none">
+                <circle cx="38" cy="11" r="7" stroke="#F5ECD7" stroke-width="3"/>
+                <line x1="36" y1="18" x2="32" y2="38" stroke="#F5ECD7" stroke-width="3" stroke-linecap="round"/>
+                <line x1="35" y1="25" x2="50" y2="18" stroke="#F5ECD7" stroke-width="2.5" stroke-linecap="round"/>
+                <line x1="35" y1="25" x2="22" y2="33" stroke="#F5ECD7" stroke-width="2.5" stroke-linecap="round"/>
+                <line x1="32" y1="38" x2="50" y2="60" stroke="#F5ECD7" stroke-width="3" stroke-linecap="round"/>
+                <line x1="50" y1="60" x2="60" y2="56" stroke="#F5ECD7" stroke-width="2.5" stroke-linecap="round"/>
+                <line x1="32" y1="38" x2="16" y2="48" stroke="#F5ECD7" stroke-width="3" stroke-linecap="round"/>
+                <line x1="16" y1="48" x2="12" y2="36" stroke="#F5ECD7" stroke-width="2.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="mark-variation-label" style="color:#F5ECD7;">Orange bg</div>
+          </div>
         </div>
-      </div>
-    </section>
 
-    <!-- TOKENS -->
-    <section id="colors">
-      <div class="section-header">
-        <div class="accent-dot"></div>
-        <h3>Design Tokens</h3>
-      </div>
-      <div class="grid">
-        <div class="card-container short">
-          <div class="card-header">
-            <span class="card-title">Color Palette</span>
-          </div>
-          <iframe src="./preview/colors-palette.html"></iframe>
-        </div>
-        <div class="card-container short" id="pairings">
-          <div class="card-header">
-            <span class="card-title">Approved Pairings</span>
-          </div>
-          <iframe src="./preview/colors-pairings.html"></iframe>
+        <!-- Lockup -->
+        <div style="display:flex;align-items:center;gap:18px;background:#0E0B1F;padding:24px;">
+          <svg width="52" height="60" viewBox="0 0 70 80" fill="none">
+            <circle cx="38" cy="11" r="7" stroke="#E8632A" stroke-width="3.5"/>
+            <line x1="36" y1="18" x2="32" y2="38" stroke="#E8632A" stroke-width="3.5" stroke-linecap="round"/>
+            <line x1="35" y1="25" x2="50" y2="18" stroke="#E8632A" stroke-width="3" stroke-linecap="round"/>
+            <line x1="35" y1="25" x2="22" y2="33" stroke="#E8632A" stroke-width="3" stroke-linecap="round"/>
+            <line x1="32" y1="38" x2="50" y2="60" stroke="#E8632A" stroke-width="3.5" stroke-linecap="round"/>
+            <line x1="50" y1="60" x2="60" y2="56" stroke="#E8632A" stroke-width="3" stroke-linecap="round"/>
+            <line x1="32" y1="38" x2="16" y2="48" stroke="#E8632A" stroke-width="3.5" stroke-linecap="round"/>
+            <line x1="16" y1="48" x2="12" y2="36" stroke="#E8632A" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+          <div style="font-family:var(--font-display);font-weight:900;font-size:26px;text-transform:uppercase;letter-spacing:-.02em;line-height:.9;color:#F5ECD7;">MOZAKA<br>RUN CLUB</div>
         </div>
       </div>
-    </section>
 
-    <section id="type">
-      <div class="grid">
-        <div class="card-container">
-          <div class="card-header">
-            <span class="card-title">Display — Big Shoulders</span>
-          </div>
-          <iframe src="./preview/type-display.html"></iframe>
-        </div>
-        <div class="card-container" id="scale">
-          <div class="card-header">
-            <span class="card-title">Type Scale</span>
-          </div>
-          <iframe src="./preview/type-scale.html"></iframe>
-        </div>
-        <div class="card-container short">
-          <div class="card-header">
-            <span class="card-title">Mono — Space Mono</span>
-          </div>
-          <iframe src="./preview/type-mono.html"></iframe>
+      <div class="mark-right">
+        <div class="mark-name">The<br>Runner<br>Mark</div>
+        <div class="mark-description">A minimal running figure in mid-stride — both feet off the ground, the body in the float phase that every runner recognises. Not a logo. A waymark. The thing you see at the start line and the finish.</div>
+        <div class="mark-rules">
+          <div class="mark-rule">Used at all sizes — from the wristband stamp to the event banner. Minimum 20px digital, 8mm print.</div>
+          <div class="mark-rule">Dawu on dark. Volt on dark for high-energy moments. Usiku on Pumzi for light backgrounds.</div>
+          <div class="mark-rule">Never filled, never dropped in a box, never rotated beyond ±3°.</div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- IN USE -->
-    <section id="poster">
-      <div class="section-header">
-        <div class="accent-dot"></div>
-        <h3>In Use</h3>
-      </div>
-      <div class="grid">
-        <div class="card-container tall">
-          <div class="card-header">
-            <span class="card-title">Event Poster</span>
-            <span class="card-tag">Dark Mode</span>
-          </div>
-          <iframe src="./preview/poster-event.html"></iframe>
-        </div>
-        <div class="card-container tall" id="social">
-          <div class="card-header">
-            <span class="card-title">Finish Line Post</span>
-            <span class="card-tag">Social</span>
-          </div>
-          <iframe src="./preview/social-finish.html"></iframe>
-        </div>
-      </div>
-    </section>
+  <!-- 3. COLORS -->
+  <section id="colors">
+    <span class="eyebrow">Design Tokens</span>
+    <div class="colors-heading">The<br>Palette</div>
 
-    <section id="merch">
-      <div class="grid">
-        <div class="card-container">
-          <div class="card-header">
-            <span class="card-title">Merch — Vest & Tee</span>
-          </div>
-          <iframe src="./preview/merch.html"></iframe>
+    <div class="color-strip">
+      <div class="color-strip-item" style="background:#E8632A;color:#0E0B1F;">
+        <div class="color-strip-name">Dawu</div>
+        <div class="color-strip-hex">#E8632A</div>
+      </div>
+      <div class="color-strip-item" style="background:#0E0B1F;color:#F5ECD7;border:1px solid rgba(245,236,215,.08);">
+        <div class="color-strip-name">Usiku</div>
+        <div class="color-strip-hex">#0E0B1F</div>
+      </div>
+      <div class="color-strip-item" style="background:#FF3B5C;color:#0E0B1F;">
+        <div class="color-strip-name">Haraka</div>
+        <div class="color-strip-hex">#FF3B5C</div>
+      </div>
+      <div class="color-strip-item" style="background:#FFB800;color:#0E0B1F;">
+        <div class="color-strip-name">Jua</div>
+        <div class="color-strip-hex">#FFB800</div>
+      </div>
+      <div class="color-strip-item" style="background:#F5ECD7;color:#0E0B1F;">
+        <div class="color-strip-name">Pumzi</div>
+        <div class="color-strip-hex">#F5ECD7</div>
+      </div>
+      <div class="color-strip-item" style="background:#C8A882;color:#0E0B1F;">
+        <div class="color-strip-name">Ngozi</div>
+        <div class="color-strip-hex">#C8A882</div>
+      </div>
+      <div class="color-strip-item" style="background:#1E2D3E;color:#F5ECD7;">
+        <div class="color-strip-name">Baridi</div>
+        <div class="color-strip-hex">#1E2D3E</div>
+      </div>
+      <div class="color-strip-item" style="background:#D4F000;color:#0E0B1F;">
+        <div class="color-strip-name">Volt</div>
+        <div class="color-strip-hex">#D4F000</div>
+      </div>
+    </div>
+
+    <div class="pairings-grid">
+      <div class="pairing-block" style="background:#0E0B1F;color:#F5ECD7;">
+        <div class="pairing-role" style="color:rgba(245,236,215,.4);">Night / Default</div>
+        <div class="pairing-sample" style="color:#D4F000;">7AM<br>SAT</div>
+      </div>
+      <div class="pairing-block" style="background:#F5ECD7;color:#0E0B1F;">
+        <div class="pairing-role" style="color:rgba(14,11,31,.4);">Morning / Light</div>
+        <div class="pairing-sample" style="color:#E8632A;">RUN<br>5KM</div>
+      </div>
+      <div class="pairing-block" style="background:#E8632A;color:#F5ECD7;">
+        <div class="pairing-role" style="color:rgba(245,236,215,.5);">Burst / Finish</div>
+        <div class="pairing-sample" style="color:#D4F000;">039<br>FIN</div>
+      </div>
+      <div class="pairing-block" style="background:#1E2D3E;color:#F5ECD7;">
+        <div class="pairing-role" style="color:rgba(245,236,215,.4);">Data / Stats</div>
+        <div class="pairing-sample" style="color:#FFB800;font-family:var(--font-mono);font-size:26px;font-weight:700;">5:32<br>/km</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. TYPOGRAPHY -->
+  <section id="typography">
+    <span class="eyebrow">Typography</span>
+
+    <div class="type-hero-specimen">
+      <span class="orange">Run Club.</span><br>Every Saturday.<br>Nairobi.
+    </div>
+
+    <div class="type-trio">
+      <div class="type-block">
+        <div class="type-block-label">Display — Big Shoulders Display</div>
+        <div class="type-block-name">Big Shoulders</div>
+        <div style="font-family:var(--font-display);font-size:18px;font-weight:900;text-transform:uppercase;letter-spacing:-.02em;color:#E8632A;line-height:1.2;">
+          Run. Dance. Chess.<br>
+          <span style="color:#F5ECD7;">Mozaka Run Club 022</span>
         </div>
-        <div class="card-container" id="components">
-          <div class="card-header">
-            <span class="card-title">UI Components</span>
-          </div>
-          <iframe src="./preview/components-buttons.html"></iframe>
+        <div class="type-block-meta">Weight 900 · UPPERCASE · -0.02em tracking</div>
+      </div>
+      <div class="type-block">
+        <div class="type-block-label">Body — DM Sans</div>
+        <div class="type-block-name" style="font-family:var(--font-body);font-weight:500;font-size:20px;text-transform:none;letter-spacing:0;color:#F5ECD7;">DM Sans</div>
+        <div class="type-block-specimen">The hardest part is lacing up. Everything after that is just running. See you at dawn, Nairobi.</div>
+        <div class="type-block-meta">Weight 300–700 · Sentence case for body · 1.6 line-height</div>
+      </div>
+      <div class="type-block">
+        <div class="type-block-label">Data — Space Mono</div>
+        <div class="type-block-name" style="font-family:var(--font-mono);font-size:22px;font-weight:700;text-transform:none;letter-spacing:0;color:#FFB800;">Space Mono</div>
+        <div class="type-block-mono">5:32/km<br>5.0km · 039<br>SAT 07:00 EAT</div>
+        <div class="type-block-meta">Times · paces · distances · dates only. Never prose.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. VOICE -->
+  <section id="voice">
+    <span class="eyebrow">Brand Voice</span>
+    <div class="voice-heading">The best party<br><span>you almost missed.</span></div>
+
+    <div class="voice-grid">
+      <div class="voice-copy-block">
+        <div class="voice-copy-label">WhatsApp blast — week before</div>
+        <div class="voice-copy-text">
+          <p>This Saturday.</p>
+          <p>Mozaka Run Club is back. 5km from the usual spot. Wheels up at 7:00am — no waiting for latecomers, we tried that once.</p>
+          <p>After the run: a 90-minute set, chess, speed dating, and something cold.</p>
+          <p>Bring your legs. Bring a friend who needs to be dragged. Ksh 500 at the door.</p>
+          <p><strong>See you at dawn.</strong></p>
         </div>
       </div>
-    </section>
 
-    <footer>
-      <div class="footer-tagline">Run. Dance. Chess.</div>
-      <div>© 2026 MOZAKA RUN CLUB / DBAKKA STUDIOS</div>
-    </footer>
-  </main>
-</div>
+      <div class="voice-traits">
+        <div class="trait"><div class="trait-name">Magnetic</div><div class="trait-desc">Creates desire without explaining itself. Says <em>come</em> more than <em>why</em>.</div></div>
+        <div class="trait"><div class="trait-name">Grounded</div><div class="trait-desc">Nairobi is the subject. Writes for the city, not about it.</div></div>
+        <div class="trait"><div class="trait-name">Irreverent</div><div class="trait-desc">Allergic to wellness speak. No "journey." No "transform." No exclamation marks.</div></div>
+        <div class="trait"><div class="trait-name">Warm</div><div class="trait-desc">The friend who texts the night before. Not the app that sends a push notification.</div></div>
+        <div class="trait" style="border-bottom:none;"><div class="trait-name">Kinetic</div><div class="trait-desc">Short sentences. Present tense. Always in motion.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. IN USE — POSTER + SOCIAL -->
+  <section id="poster">
+    <span class="eyebrow">In Use</span>
+    <div class="poster-grid" style="margin-top:40px;">
+
+      <!-- Event Poster -->
+      <div class="poster-card">
+        <svg class="poster-bg-mark" width="280" height="320" viewBox="0 0 70 80" fill="none">
+          <circle cx="38" cy="11" r="7" stroke="#E8632A" stroke-width="2"/>
+          <line x1="36" y1="18" x2="32" y2="38" stroke="#E8632A" stroke-width="2" stroke-linecap="round"/>
+          <line x1="35" y1="25" x2="50" y2="18" stroke="#E8632A" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="35" y1="25" x2="22" y2="33" stroke="#E8632A" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="32" y1="38" x2="50" y2="60" stroke="#E8632A" stroke-width="2" stroke-linecap="round"/>
+          <line x1="50" y1="60" x2="60" y2="56" stroke="#E8632A" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="32" y1="38" x2="16" y2="48" stroke="#E8632A" stroke-width="2" stroke-linecap="round"/>
+          <line x1="16" y1="48" x2="12" y2="36" stroke="#E8632A" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <div class="poster-eyebrow">
+          <span>Mozaka Run Club · 022</span>
+          <svg width="20" height="23" viewBox="0 0 70 80" fill="none" style="opacity:.6;">
+            <circle cx="38" cy="11" r="7" stroke="#E8632A" stroke-width="4"/>
+            <line x1="36" y1="18" x2="32" y2="38" stroke="#E8632A" stroke-width="4" stroke-linecap="round"/>
+            <line x1="35" y1="25" x2="50" y2="18" stroke="#E8632A" stroke-width="3" stroke-linecap="round"/>
+            <line x1="35" y1="25" x2="22" y2="33" stroke="#E8632A" stroke-width="3" stroke-linecap="round"/>
+            <line x1="32" y1="38" x2="50" y2="60" stroke="#E8632A" stroke-width="4" stroke-linecap="round"/>
+            <line x1="50" y1="60" x2="60" y2="56" stroke="#E8632A" stroke-width="3" stroke-linecap="round"/>
+            <line x1="32" y1="38" x2="16" y2="48" stroke="#E8632A" stroke-width="4" stroke-linecap="round"/>
+            <line x1="16" y1="48" x2="12" y2="36" stroke="#E8632A" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div>
+          <div class="poster-headline">
+            <div class="c1">Run.</div>
+            <div class="c2">Dance.</div>
+            <div class="c3">Chess.</div>
+          </div>
+          <div class="poster-sub">Nairobi · Every Saturday · Dawn</div>
+        </div>
+        <div>
+          <div class="poster-divider"></div>
+          <div class="poster-info">
+            <div class="poster-info-left">
+              <div class="poster-info-line"><strong>Saturday 17 May 2026</strong></div>
+              <div class="poster-info-line">Uhuru Park Main Gate · <strong>7:00 AM</strong></div>
+              <div class="poster-info-line" style="font-size:11px;margin-top:2px;">RSVP for location · 5km · DJ set after</div>
+            </div>
+            <div class="poster-price">KSH 500</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Finish Line Post -->
+      <div class="post-card">
+        <svg class="post-bg-mark" width="220" height="252" viewBox="0 0 70 80" fill="none">
+          <circle cx="38" cy="11" r="7" stroke="#0E0B1F" stroke-width="2.5"/>
+          <line x1="36" y1="18" x2="32" y2="38" stroke="#0E0B1F" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="35" y1="25" x2="50" y2="18" stroke="#0E0B1F" stroke-width="2" stroke-linecap="round"/>
+          <line x1="35" y1="25" x2="22" y2="33" stroke="#0E0B1F" stroke-width="2" stroke-linecap="round"/>
+          <line x1="32" y1="38" x2="50" y2="60" stroke="#0E0B1F" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="50" y1="60" x2="60" y2="56" stroke="#0E0B1F" stroke-width="2" stroke-linecap="round"/>
+          <line x1="32" y1="38" x2="16" y2="48" stroke="#0E0B1F" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="16" y1="48" x2="12" y2="36" stroke="#0E0B1F" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <div class="post-top">
+          <span>Mozaka Run Club · 022</span>
+          <span>Sat 17 May · 7am</span>
+        </div>
+        <div>
+          <div class="post-count">039</div>
+          <div class="post-count-label">runners finished</div>
+        </div>
+        <div>
+          <div class="post-caption">
+            39 people who were warm in bed at 6:45.<br>
+            We ran 5km. Then we danced for an hour.<br>
+            Someone won at chess. <strong>Someone met their person.</strong>
+          </div>
+          <div class="post-tags">#MozakaRunClub &nbsp;#Nairobi &nbsp;#RunDanceChess</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. MERCH -->
+  <section id="merch">
+    <span class="eyebrow">Merch</span>
+    <div class="merch-grid">
+
+      <!-- Vest -->
+      <div class="merch-item">
+        <div class="merch-visual">
+          <div class="vest">
+            <div class="vest-body"></div>
+            <div class="vest-l"></div>
+            <div class="vest-r"></div>
+            <div class="vest-icon">
+              <svg width="20" height="23" viewBox="0 0 70 80" fill="none">
+                <circle cx="38" cy="11" r="7" stroke="#D4F000" stroke-width="5"/>
+                <line x1="36" y1="18" x2="32" y2="38" stroke="#D4F000" stroke-width="5" stroke-linecap="round"/>
+                <line x1="35" y1="25" x2="50" y2="18" stroke="#D4F000" stroke-width="4" stroke-linecap="round"/>
+                <line x1="35" y1="25" x2="22" y2="33" stroke="#D4F000" stroke-width="4" stroke-linecap="round"/>
+                <line x1="32" y1="38" x2="50" y2="60" stroke="#D4F000" stroke-width="5" stroke-linecap="round"/>
+                <line x1="50" y1="60" x2="60" y2="56" stroke="#D4F000" stroke-width="4" stroke-linecap="round"/>
+                <line x1="32" y1="38" x2="16" y2="48" stroke="#D4F000" stroke-width="5" stroke-linecap="round"/>
+                <line x1="16" y1="48" x2="12" y2="36" stroke="#D4F000" stroke-width="4" stroke-linecap="round"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div class="merch-name">Running Vest</div>
+        <div class="merch-spec">Volt mark on Usiku. "MOZAKA RUN CLUB" arched across back. Session number at hem.</div>
+      </div>
+
+      <!-- Tee -->
+      <div class="merch-item">
+        <div class="merch-visual">
+          <div class="tee">
+            <svg width="30" height="34" viewBox="0 0 70 80" fill="none" style="margin-top:8px;">
+              <circle cx="38" cy="11" r="7" stroke="#E8632A" stroke-width="4"/>
+              <line x1="36" y1="18" x2="32" y2="38" stroke="#E8632A" stroke-width="4" stroke-linecap="round"/>
+              <line x1="35" y1="25" x2="50" y2="18" stroke="#E8632A" stroke-width="3" stroke-linecap="round"/>
+              <line x1="35" y1="25" x2="22" y2="33" stroke="#E8632A" stroke-width="3" stroke-linecap="round"/>
+              <line x1="32" y1="38" x2="50" y2="60" stroke="#E8632A" stroke-width="4" stroke-linecap="round"/>
+              <line x1="50" y1="60" x2="60" y2="56" stroke="#E8632A" stroke-width="3" stroke-linecap="round"/>
+              <line x1="32" y1="38" x2="16" y2="48" stroke="#E8632A" stroke-width="4" stroke-linecap="round"/>
+              <line x1="16" y1="48" x2="12" y2="36" stroke="#E8632A" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+          </div>
+        </div>
+        <div class="merch-name">T-Shirt</div>
+        <div class="merch-spec">Dawu mark on Pumzi (cream). "EARNED AT 7AM" across the full back.</div>
+      </div>
+
+      <!-- Socks -->
+      <div class="merch-item">
+        <div class="merch-visual" style="gap:12px;">
+          <div class="sock">
+            <div class="sock-stripe"></div>
+            <div class="sock-mark">
+              <svg width="14" height="16" viewBox="0 0 70 80" fill="none">
+                <circle cx="38" cy="11" r="7" stroke="#D4F000" stroke-width="6"/>
+                <line x1="36" y1="18" x2="32" y2="38" stroke="#D4F000" stroke-width="6" stroke-linecap="round"/>
+                <line x1="35" y1="25" x2="50" y2="18" stroke="#D4F000" stroke-width="5" stroke-linecap="round"/>
+                <line x1="35" y1="25" x2="22" y2="33" stroke="#D4F000" stroke-width="5" stroke-linecap="round"/>
+                <line x1="32" y1="38" x2="50" y2="60" stroke="#D4F000" stroke-width="6" stroke-linecap="round"/>
+                <line x1="50" y1="60" x2="60" y2="56" stroke="#D4F000" stroke-width="5" stroke-linecap="round"/>
+                <line x1="32" y1="38" x2="16" y2="48" stroke="#D4F000" stroke-width="6" stroke-linecap="round"/>
+                <line x1="16" y1="48" x2="12" y2="36" stroke="#D4F000" stroke-width="5" stroke-linecap="round"/>
+              </svg>
+            </div>
+          </div>
+          <div class="sock">
+            <div class="sock-stripe"></div>
+            <div class="sock-mark">
+              <svg width="14" height="16" viewBox="0 0 70 80" fill="none">
+                <circle cx="38" cy="11" r="7" stroke="#D4F000" stroke-width="6"/>
+                <line x1="36" y1="18" x2="32" y2="38" stroke="#D4F000" stroke-width="6" stroke-linecap="round"/>
+                <line x1="35" y1="25" x2="50" y2="18" stroke="#D4F000" stroke-width="5" stroke-linecap="round"/>
+                <line x1="35" y1="25" x2="22" y2="33" stroke="#D4F000" stroke-width="5" stroke-linecap="round"/>
+                <line x1="32" y1="38" x2="50" y2="60" stroke="#D4F000" stroke-width="6" stroke-linecap="round"/>
+                <line x1="50" y1="60" x2="60" y2="56" stroke="#D4F000" stroke-width="5" stroke-linecap="round"/>
+                <line x1="32" y1="38" x2="16" y2="48" stroke="#D4F000" stroke-width="6" stroke-linecap="round"/>
+                <line x1="16" y1="48" x2="12" y2="36" stroke="#D4F000" stroke-width="5" stroke-linecap="round"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div class="merch-name">Socks</div>
+        <div class="merch-spec">Usiku base. Dawu stripe at the cuff. Volt runner mark at the ankle.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-tagline">Run. Dance. Chess.</div>
+    <div class="footer-meta">Nairobi · Every Saturday · 7AM &nbsp;·&nbsp; © 2026 Mozaka / dbakka Studios</div>
+    <a href="../index.html" style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#C8A882;text-decoration:none;border:none;">← Mozaka Main</a>
+  </footer>
+
+</main>
 </body>
 </html>
