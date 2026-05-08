@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mozaka Run Club — Mark Options</title>
+  <link rel="stylesheet" href="./brand/css-variables.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #0E0B1F;
+      color: #F5ECD7;
+      font-family: var(--font-body);
+    }
+
+    header {
+      padding: 48px 56px 32px;
+      border-bottom: 1px solid rgba(200,168,130,.12);
+    }
+
+    .header-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #E8632A;
+      margin-bottom: 12px;
+    }
+
+    .header-title {
+      font-family: var(--font-display);
+      font-size: clamp(40px, 6vw, 72px);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.025em;
+      line-height: 0.9;
+      color: #F5ECD7;
+    }
+
+    .header-sub {
+      font-size: 14px;
+      color: #C8A882;
+      margin-top: 16px;
+      max-width: 56ch;
+      line-height: 1.6;
+    }
+
+    .marks-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: #0A0817;
+      padding: 2px;
+    }
+
+    .mark-card {
+      background: #0E0B1F;
+      padding: 48px 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      cursor: pointer;
+      transition: background 200ms;
+      position: relative;
+    }
+    .mark-card:hover { background: #141128; }
+    .mark-card:hover .mark-select-btn { opacity: 1; }
+
+    .mark-number {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: rgba(200,168,130,.4);
+      letter-spacing: 0.1em;
+    }
+
+    .mark-preview {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+      min-height: 200px;
+    }
+
+    .mark-name {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      color: #F5ECD7;
+    }
+
+    .mark-concept {
+      font-size: 13px;
+      color: #C8A882;
+      line-height: 1.55;
+      max-width: 32ch;
+    }
+
+    .mark-sizes {
+      display: flex;
+      gap: 20px;
+      align-items: flex-end;
+    }
+
+    .size-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .size-label {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      color: rgba(200,168,130,.4);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .mark-select-btn {
+      position: absolute;
+      bottom: 48px;
+      right: 40px;
+      font-family: var(--font-display);
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #E8632A;
+      opacity: 0;
+      transition: opacity 200ms;
+      pointer-events: none;
+    }
+
+    .divider {
+      height: 1px;
+      background: rgba(200,168,130,.1);
+    }
+
+    /* On light bg preview */
+    .on-light {
+      background: #F5ECD7;
+      padding: 12px;
+    }
+
+    footer {
+      padding: 40px 56px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid rgba(200,168,130,.1);
+    }
+
+    footer a {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #C8A882;
+      text-decoration: none;
+      border: none;
+    }
+    footer a:hover { color: #F5ECD7; }
+
+    .footer-note {
+      font-size: 12px;
+      color: rgba(200,168,130,.5);
+    }
+
+    @media (max-width: 900px) {
+      .marks-grid { grid-template-columns: 1fr; }
+      header { padding: 32px 24px; }
+      .mark-card { padding: 36px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-eyebrow">Mozaka Run Club · Mark Options</div>
+  <div class="header-title">Choose<br>the mark.</div>
+  <div class="header-sub">Six distinct directions. Same colours. Pick the one that says "run club" to you — or tell me what to push further.</div>
+</header>
+
+<div class="marks-grid">
+
+  <!-- MARK 01: THE RUNNER (current) -->
+  <div class="mark-card">
+    <div class="mark-number">01 — THE RUNNER</div>
+    <div class="mark-preview">
+      <svg width="120" height="137" viewBox="0 0 70 80" fill="none">
+        <circle cx="38" cy="11" r="7" stroke="#E8632A" stroke-width="3"/>
+        <line x1="36" y1="18" x2="32" y2="38" stroke="#E8632A" stroke-width="3" stroke-linecap="round"/>
+        <line x1="35" y1="25" x2="50" y2="18" stroke="#E8632A" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="35" y1="25" x2="22" y2="33" stroke="#E8632A" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="32" y1="38" x2="50" y2="60" stroke="#E8632A" stroke-width="3" stroke-linecap="round"/>
+        <line x1="50" y1="60" x2="60" y2="56" stroke="#E8632A" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="32" y1="38" x2="16" y2="48" stroke="#E8632A" stroke-width="3" stroke-linecap="round"/>
+        <line x1="16" y1="48" x2="12" y2="36" stroke="#E8632A" stroke-width="2.5" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div>
+      <div class="mark-name">The Runner</div>
+      <div class="mark-concept">A minimal running figure in mid-stride — the float phase where both feet are off the ground. Clean, stroke-based, works at all sizes.</div>
+    </div>
+    <div class="mark-sizes">
+      <div class="size-wrap">
+        <svg width="64" height="73" viewBox="0 0 70 80" fill="none">
+          <circle cx="38" cy="11" r="7" stroke="#E8632A" stroke-width="3"/>
+          <line x1="36" y1="18" x2="32" y2="38" stroke="#E8632A" stroke-width="3" stroke-linecap="round"/>
+          <line x1="35" y1="25" x2="50" y2="18" stroke="#E8632A" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="35" y1="25" x2="22" y2="33" stroke="#E8632A" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="32" y1="38" x2="50" y2="60" stroke="#E8632A" stroke-width="3" stroke-linecap="round"/>
+          <line x1="50" y1="60" x2="60" y2="56" stroke="#E8632A" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="32" y1="38" x2="16" y2="48" stroke="#E8632A" stroke-width="3" stroke-linecap="round"/>
+          <line x1="16" y1="48" x2="12" y2="36" stroke="#E8632A" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+        <div class="size-label">64px</div>
+      </div>
+      <div class="size-wrap">
+        <svg width="36" height="41" viewBox="0 0 70 80" fill="none">
+          <circle cx="38" cy="11" r="7" stroke="#E8632A" stroke-width="3.5"/>
+          <line x1="36" y1="18" x2="32" y2="38" stroke="#E8632A" stroke-width="3.5" stroke-linecap="round"/>
+          <line x1="35" y1="25" x2="50" y2="18" stroke="#E8632A" stroke-width="3" stroke-linecap="round"/>
+          <line x1="35" y1="25" x2="22" y2="33" stroke="#E8632A" stroke-width="3" stroke-linecap="round"/>
+          <line x1="32" y1="38" x2="50" y2="60" stroke="#E8632A" stroke-width="3.5" stroke-linecap="round"/>
+          <line x1="50" y1="60" x2="60" y2="56" stroke="#E8632A" stroke-width="3" stroke-linecap="round"/>
+          <line x1="32" y1="38" x2="16" y2="48" stroke="#E8632A" stroke-width="3.5" stroke-linecap="round"/>
+          <line x1="16" y1="48" x2="12" y2="36" stroke="#E8632A" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+        <div class="size-label">36px</div>
+      </div>
+      <div class="size-wrap on-light">
+        <svg width="32" height="37" viewBox="0 0 70 80" fill="none">
+          <circle cx="38" cy="11" r="7" stroke="#E8632A" stroke-width="4"/>
+          <line x1="36" y1="18" x2="32" y2="38" stroke="#0E0B1F" stroke-width="4" stroke-linecap="round"/>
+          <line x1="35" y1="25" x2="50" y2="18" stroke="#0E0B1F" stroke-width="3" stroke-linecap="round"/>
+          <line x1="35" y1="25" x2="22" y2="33" stroke="#0E0B1F" stroke-width="3" stroke-linecap="round"/>
+          <line x1="32" y1="38" x2="50" y2="60" stroke="#0E0B1F" stroke-width="4" stroke-linecap="round"/>
+          <line x1="50" y1="60" x2="60" y2="56" stroke="#0E0B1F" stroke-width="3" stroke-linecap="round"/>
+          <line x1="32" y1="38" x2="16" y2="48" stroke="#0E0B1F" stroke-width="4" stroke-linecap="round"/>
+          <line x1="16" y1="48" x2="12" y2="36" stroke="#0E0B1F" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+        <div class="size-label" style="color:#C8A882;">light</div>
+      </div>
+    </div>
+    <div class="mark-select-btn">Current →</div>
+  </div>
+
+  <!-- MARK 02: THE SUNRISE ARC -->
+  <div class="mark-card">
+    <div class="mark-number">02 — THE SUNRISE ARC</div>
+    <div class="mark-preview">
+      <svg width="148" height="80" viewBox="0 0 148 80" fill="none">
+        <!-- Arc (rising sun) -->
+        <path d="M10 68 A64 64 0 0 1 138 68" stroke="#E8632A" stroke-width="4" stroke-linecap="round"/>
+        <!-- Horizon line -->
+        <line x1="4" y1="68" x2="144" y2="68" stroke="#E8632A" stroke-width="2.5" stroke-linecap="round"/>
+        <!-- Running figure at horizon, small, mid-stride -->
+        <circle cx="74" cy="54" r="4.5" stroke="#D4F000" stroke-width="2.5"/>
+        <line x1="73" y1="58.5" x2="71" y2="67" stroke="#D4F000" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="72" y1="61" x2="79" y2="57.5" stroke="#D4F000" stroke-width="2" stroke-linecap="round"/>
+        <line x1="72" y1="61" x2="65" y2="64" stroke="#D4F000" stroke-width="2" stroke-linecap="round"/>
+        <line x1="71" y1="67" x2="79" y2="73" stroke="#D4F000" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="79" y1="73" x2="83" y2="71" stroke="#D4F000" stroke-width="2" stroke-linecap="round"/>
+        <line x1="71" y1="67" x2="63" y2="71" stroke="#D4F000" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="63" y1="71" x2="61" y2="64" stroke="#D4F000" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div>
+      <div class="mark-name">The Sunrise Arc</div>
+      <div class="mark-concept">A bold sunrise arc over a horizon line, with the runner as a small volt figure at the crest. Dawn as the mark. The club runs toward the sun.</div>
+    </div>
+    <div class="mark-sizes">
+      <div class="size-wrap">
+        <svg width="80" height="43" viewBox="0 0 148 80" fill="none">
+          <path d="M10 68 A64 64 0 0 1 138 68" stroke="#E8632A" stroke-width="4" stroke-linecap="round"/>
+          <line x1="4" y1="68" x2="144" y2="68" stroke="#E8632A" stroke-width="2.5" stroke-linecap="round"/>
+          <circle cx="74" cy="54" r="4.5" stroke="#D4F000" stroke-width="2.5"/>
+          <line x1="73" y1="58.5" x2="71" y2="67" stroke="#D4F000" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="72" y1="61" x2="79" y2="57.5" stroke="#D4F000" stroke-width="2" stroke-linecap="round"/>
+          <line x1="72" y1="61" x2="65" y2="64" stroke="#D4F000" stroke-width="2" stroke-linecap="round"/>
+          <line x1="71" y1="67" x2="79" y2="73" stroke="#D4F000" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="71" y1="67" x2="63" y2="71" stroke="#D4F000" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="63" y1="71" x2="61" y2="64" stroke="#D4F000" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <div class="size-label">80px</div>
+      </div>
+      <div class="size-wrap on-light">
+        <svg width="52" height="28" viewBox="0 0 148 80" fill="none">
+          <path d="M10 68 A64 64 0 0 1 138 68" stroke="#E8632A" stroke-width="5" stroke-linecap="round"/>
+          <line x1="4" y1="68" x2="144" y2="68" stroke="#0E0B1F" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="74" cy="54" r="4.5" stroke="#E8632A" stroke-width="3"/>
+          <line x1="73" y1="58.5" x2="71" y2="67" stroke="#E8632A" stroke-width="3" stroke-linecap="round"/>
+          <line x1="71" y1="67" x2="79" y2="73" stroke="#E8632A" stroke-width="3" stroke-linecap="round"/>
+          <line x1="71" y1="67" x2="63" y2="71" stroke="#E8632A" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+        <div class="size-label" style="color:#C8A882;">light</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MARK 03: THE 7 -->
+  <div class="mark-card">
+    <div class="mark-number">03 — THE SEVEN</div>
+    <div class="mark-preview">
+      <svg width="100" height="120" viewBox="0 0 100 120" fill="none">
+        <!-- Bold 7 -->
+        <path d="M18 14 L82 14 L40 106" stroke="#E8632A" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- Runner on the crossbar of 7 -->
+        <circle cx="62" cy="14" r="5" stroke="#D4F000" stroke-width="2.5"/>
+        <!-- tiny running legs under the runner on the bar -->
+        <line x1="61" y1="19" x2="59" y2="26" stroke="#D4F000" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="60.5" y1="21.5" x2="66" y2="18" stroke="#D4F000" stroke-width="2" stroke-linecap="round"/>
+        <line x1="60.5" y1="21.5" x2="55" y2="23.5" stroke="#D4F000" stroke-width="2" stroke-linecap="round"/>
+        <line x1="59" y1="26" x2="65" y2="31" stroke="#D4F000" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="59" y1="26" x2="53" y2="29" stroke="#D4F000" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="53" y1="29" x2="51" y2="22" stroke="#D4F000" stroke-width="2" stroke-linecap="round"/>
+        <!-- AM label -->
+        <text x="72" y="28" font-family="monospace" font-size="10" font-weight="700" fill="#C8A882" letter-spacing="1">AM</text>
+      </svg>
+    </div>
+    <div>
+      <div class="mark-name">The Seven</div>
+      <div class="mark-concept">The time made into the mark. "7" is the whole brief — 7AM, Saturday, Nairobi. The runner rides the crossbar. Impossible to mistake for anything else.</div>
+    </div>
+    <div class="mark-sizes">
+      <div class="size-wrap">
+        <svg width="52" height="62" viewBox="0 0 100 120" fill="none">
+          <path d="M18 14 L82 14 L40 106" stroke="#E8632A" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="62" cy="14" r="5" stroke="#D4F000" stroke-width="3"/>
+        </svg>
+        <div class="size-label">52px</div>
+      </div>
+      <div class="size-wrap">
+        <svg width="32" height="38" viewBox="0 0 100 120" fill="none">
+          <path d="M18 14 L82 14 L40 106" stroke="#E8632A" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="size-label">32px</div>
+      </div>
+      <div class="size-wrap on-light">
+        <svg width="32" height="38" viewBox="0 0 100 120" fill="none">
+          <path d="M18 14 L82 14 L40 106" stroke="#0E0B1F" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="62" cy="14" r="5" stroke="#E8632A" stroke-width="3"/>
+        </svg>
+        <div class="size-label" style="color:#C8A882;">light</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MARK 04: THE CHEVRON -->
+  <div class="mark-card">
+    <div class="mark-number">04 — THE CHEVRON</div>
+    <div class="mark-preview">
+      <svg width="120" height="110" viewBox="0 0 120 110" fill="none">
+        <!-- Two bold chevron lines — like a forward stride or a speed mark -->
+        <path d="M12 90 L60 18 L108 90" stroke="#E8632A" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- Runner dot at apex -->
+        <circle cx="60" cy="12" r="10" fill="#E8632A"/>
+        <!-- Small volt detail — horizontal speed tick -->
+        <line x1="26" y1="66" x2="42" y2="66" stroke="#D4F000" stroke-width="3" stroke-linecap="round"/>
+        <line x1="78" y1="66" x2="94" y2="66" stroke="#D4F000" stroke-width="3" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div>
+      <div class="mark-name">The Chevron</div>
+      <div class="mark-concept">A bold V-chevron pointing up — speed, direction, forward momentum. The apex is the runner. Volt speed ticks on either side. Strong at large and small sizes.</div>
+    </div>
+    <div class="mark-sizes">
+      <div class="size-wrap">
+        <svg width="64" height="59" viewBox="0 0 120 110" fill="none">
+          <path d="M12 90 L60 18 L108 90" stroke="#E8632A" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="60" cy="12" r="10" fill="#E8632A"/>
+        </svg>
+        <div class="size-label">64px</div>
+      </div>
+      <div class="size-wrap">
+        <svg width="32" height="29" viewBox="0 0 120 110" fill="none">
+          <path d="M12 90 L60 18 L108 90" stroke="#E8632A" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="60" cy="12" r="10" fill="#E8632A"/>
+        </svg>
+        <div class="size-label">32px</div>
+      </div>
+      <div class="size-wrap on-light">
+        <svg width="32" height="29" viewBox="0 0 120 110" fill="none">
+          <path d="M12 90 L60 18 L108 90" stroke="#0E0B1F" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="60" cy="12" r="10" fill="#E8632A"/>
+        </svg>
+        <div class="size-label" style="color:#C8A882;">light</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MARK 05: THE MRC BADGE -->
+  <div class="mark-card">
+    <div class="mark-number">05 — THE MRC BADGE</div>
+    <div class="mark-preview">
+      <svg width="130" height="130" viewBox="0 0 130 130" fill="none">
+        <!-- Outer circle -->
+        <circle cx="65" cy="65" r="56" stroke="#E8632A" stroke-width="3.5"/>
+        <!-- Inner circle (tight) -->
+        <circle cx="65" cy="65" r="49" stroke="#E8632A" stroke-width="1" opacity=".3"/>
+        <!-- MRC text -->
+        <text x="65" y="57" font-family="'Big Shoulders Display', 'Anton', Impact, sans-serif" font-size="26" font-weight="900" fill="#F5ECD7" text-anchor="middle" letter-spacing="-1">MRC</text>
+        <!-- Tagline arc text simulation with 3 dots -->
+        <text x="65" y="76" font-family="monospace" font-size="9" font-weight="700" fill="#E8632A" text-anchor="middle" letter-spacing="3">RUN · DANCE · CHESS</text>
+        <!-- Bottom chevron detail -->
+        <path d="M48 88 L65 98 L82 88" stroke="#D4F000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <div>
+      <div class="mark-name">The MRC Badge</div>
+      <div class="mark-concept">A contained badge mark — the monogram MRC inside a double ring. "Run · Dance · Chess" as the inner type arc. Works on a wristband, a patch, a cap badge. Very embroidery-friendly.</div>
+    </div>
+    <div class="mark-sizes">
+      <div class="size-wrap">
+        <svg width="64" height="64" viewBox="0 0 130 130" fill="none">
+          <circle cx="65" cy="65" r="56" stroke="#E8632A" stroke-width="4"/>
+          <text x="65" y="73" font-family="'Big Shoulders Display', Impact, sans-serif" font-size="36" font-weight="900" fill="#F5ECD7" text-anchor="middle" letter-spacing="-1">MRC</text>
+        </svg>
+        <div class="size-label">64px</div>
+      </div>
+      <div class="size-wrap">
+        <svg width="36" height="36" viewBox="0 0 130 130" fill="none">
+          <circle cx="65" cy="65" r="56" stroke="#E8632A" stroke-width="5"/>
+          <text x="65" y="73" font-family="Impact, sans-serif" font-size="36" font-weight="900" fill="#F5ECD7" text-anchor="middle">MRC</text>
+        </svg>
+        <div class="size-label">36px</div>
+      </div>
+      <div class="size-wrap on-light">
+        <svg width="36" height="36" viewBox="0 0 130 130" fill="none">
+          <circle cx="65" cy="65" r="56" stroke="#E8632A" stroke-width="5"/>
+          <text x="65" y="73" font-family="Impact, sans-serif" font-size="36" font-weight="900" fill="#0E0B1F" text-anchor="middle">MRC</text>
+        </svg>
+        <div class="size-label" style="color:#C8A882;">light</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MARK 06: THE PACE LINE -->
+  <div class="mark-card">
+    <div class="mark-number">06 — THE PACE LINE</div>
+    <div class="mark-preview">
+      <svg width="140" height="100" viewBox="0 0 140 100" fill="none">
+        <!-- Route line — starts flat, kicks up at the end like a pace graph -->
+        <path d="M10 72 L40 72 L55 58 L75 50 L95 38 L110 28 L125 20" stroke="#E8632A" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- Start dot -->
+        <circle cx="10" cy="72" r="5" fill="#C8A882"/>
+        <!-- Finish runner at the peak -->
+        <circle cx="125" cy="14" r="6" stroke="#D4F000" stroke-width="3"/>
+        <line x1="124" y1="20" x2="122" y2="28" stroke="#D4F000" stroke-width="3" stroke-linecap="round"/>
+        <line x1="123" y1="23" x2="130" y2="19" stroke="#D4F000" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="123" y1="23" x2="116" y2="25" stroke="#D4F000" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="122" y1="28" x2="129" y2="34" stroke="#D4F000" stroke-width="3" stroke-linecap="round"/>
+        <line x1="122" y1="28" x2="115" y2="31" stroke="#D4F000" stroke-width="3" stroke-linecap="round"/>
+        <!-- Distance markers -->
+        <line x1="40" y1="72" x2="40" y2="78" stroke="#C8A882" stroke-width="1.5" stroke-linecap="round" opacity=".5"/>
+        <line x1="75" y1="50" x2="75" y2="56" stroke="#C8A882" stroke-width="1.5" stroke-linecap="round" opacity=".5"/>
+        <line x1="110" y1="28" x2="110" y2="34" stroke="#C8A882" stroke-width="1.5" stroke-linecap="round" opacity=".5"/>
+        <text x="36" y="88" font-family="monospace" font-size="7" fill="#C8A882" text-anchor="middle" opacity=".5">1K</text>
+        <text x="71" y="66" font-family="monospace" font-size="7" fill="#C8A882" text-anchor="middle" opacity=".5">2.5K</text>
+        <text x="106" y="44" font-family="monospace" font-size="7" fill="#C8A882" text-anchor="middle" opacity=".5">5K</text>
+      </svg>
+    </div>
+    <div>
+      <div class="mark-name">The Pace Line</div>
+      <div class="mark-concept">A pace graph that rises as you run — slow at the start, full stride at 5K. The runner is always at the peak. The mark tells the story of every Saturday morning in one line.</div>
+    </div>
+    <div class="mark-sizes">
+      <div class="size-wrap">
+        <svg width="70" height="50" viewBox="0 0 140 100" fill="none">
+          <path d="M10 72 L40 72 L55 58 L75 50 L95 38 L110 28 L125 20" stroke="#E8632A" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="10" cy="72" r="5" fill="#C8A882"/>
+          <circle cx="125" cy="14" r="6" stroke="#D4F000" stroke-width="3"/>
+        </svg>
+        <div class="size-label">70px</div>
+      </div>
+      <div class="size-wrap on-light">
+        <svg width="70" height="50" viewBox="0 0 140 100" fill="none">
+          <path d="M10 72 L40 72 L55 58 L75 50 L95 38 L110 28 L125 20" stroke="#E8632A" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="10" cy="72" r="5" fill="#C8A882"/>
+          <circle cx="125" cy="14" r="6" stroke="#E8632A" stroke-width="3"/>
+        </svg>
+        <div class="size-label" style="color:#C8A882;">light</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div>
+    <div style="font-family:var(--font-display);font-size:13px;font-weight:900;text-transform:uppercase;letter-spacing:-0.01em;color:#F5ECD7;">Mozaka Run Club — Mark Selection</div>
+    <div class="footer-note" style="margin-top:4px;">Tell me which number you like, or what direction to push further.</div>
+  </div>
+  <a href="./index.html">← Back to brand system</a>
+</footer>
+
+</body>
+</html>
